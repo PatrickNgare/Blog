@@ -9,6 +9,25 @@
 
     <title>{{ config('app.name', 'Laravel') }}</title>
 
+
+    <!-- imporitn our files --->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+
+
+	<link rel="stylesheet" href="{{ asset('assets/fonts/icomoon/style.css') }}">
+	<link rel="stylesheet" href="{{ asset('fonts/flaticon/font/flaticon.css') }}">
+
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+
+	<link rel="stylesheet" href="{{ asset('assets/css/tiny-slider.css')}}">
+	<link rel="stylesheet" href="{{asset('assets/css/aos.css')}}">
+	<link rel="stylesheet" href="{{asset('assets/css/glightbox.min.css')}}">
+	<link rel="stylesheet" href="{{asset('assets/css/style.css')}}">
+
+	<link rel="stylesheet" href="{{asset('assets/css/flatpickr.min.css')}}">
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
@@ -76,5 +95,18 @@
             @yield('content')
         </main>
     </div>
+
+
+    <script src="{{asset('assets/js/bootstrap.bundle.min.js')}}"></script>
+    <script src="{{asset('assets/js/tiny-slider.js')}}"></script>
+
+    <script src="{{ asset('assets/js/flatpickr.min.js')}}"></script>
+
+
+    <script src="{{ asset('assets/js/aos.js')}}"></script>
+    <script src="{{ asset('assets/js/glightbox.min.js')}}"></script>
+    <script src="{{ asset('assets/js/navbar.js') }}"></script>
+    <script src="{{ asset('assets/js/counter.js') }}"></script>
+    <script src="{{ asset('assets/js/custom.js') }}"></script>
 </body>
 </html>
