@@ -3,14 +3,13 @@
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
+// Root route
 Route::get('/', function () {
-    return view('home');
-});
+    return view('home'); // Serve the home view for the root URL
+})->name('root');
 
+// Authentication routes
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-Auth::routes();
-
+// Authenticated home route
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
