@@ -18,6 +18,7 @@
 
 	<link rel="stylesheet" href="{{asset('assets/fonts/icomoon/style.css') }}">
 	<link rel="stylesheet" href="{{asset('assets/fonts/flaticon/font/flaticon.css')}}">
+    
 
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
 
