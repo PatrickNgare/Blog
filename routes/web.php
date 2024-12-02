@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
+use App\Models\post\PostModel;
 // Root route
 Route::get('/', function () {
     return view('home'); // Serve the home view for the root URL
