@@ -10,9 +10,9 @@
 				<div class="col-md-4">
 
                     @foreach ( $posts as $post )
-                    <a href="single.html" class="h-entry mb-30 v-height gradient">
+                    <a href="{{route('posts.single',$post->id)}}" class="h-entry mb-30 v-height gradient">
 
-						<div class="featured-img" style="background-image: url('images/img_2_horizontal.jpg');"></div>
+						<div class="featured-img" style="background-image: url('{{asset('assets/images/'.$post->image.'')   }}');"></div>
 
 						<div class="text">
 							<span class="date">{{ $post->created_at }}</span>
@@ -23,35 +23,36 @@
 
 				</div>
 				<div class="col-md-4">
-					<a href="single.html" class="h-entry img-5 h-100 gradient">
+                    @foreach ( $postOne as $justPost )
+                    <a href="{{route('posts.single', $justPost->id)}}" class="h-entry img-5 h-100 gradient">
 
-						<div class="featured-img" style="background-image: url('images/img_1_vertical.jpg');"></div>
+						<div class="featured-img" style="background-image: url('{{ asset('assets/images/' . $justPost->image) }}');"></div>
 
 						<div class="text">
-							<span class="date">Apr. 14th, 2022</span>
-							<h2>Why is my internet so slow?</h2>
+							<span class="date">{{ $justPost->created_at }}</span>
+							<h2>{{ $justPost->title }}</h2>
 						</div>
 					</a>
+                    @endforeach
+					
 				</div>
 				<div class="col-md-4">
-					<a href="single.html" class="h-entry mb-30 v-height gradient">
 
-						<div class="featured-img" style="background-image: url('images/img_3_horizontal.jpg');"></div>
+                    @foreach ( $postTwo as $post)
 
-						<div class="text">
-							<span class="date">Apr. 14th, 2022</span>
-							<h2>Startup vs corporate: What job suits you best?</h2>
-						</div>
-					</a>
-					<a href="single.html" class="h-entry v-height gradient">
+                    <a href="single.html" class="h-entry mb-30 v-height gradient">
 
-						<div class="featured-img" style="background-image: url('images/img_4_horizontal.jpg');"></div>
+						<div class="featured-img" style="background-image: url('{{ asset('assets/images/'.$post->image.'') }}');"></div>
 
 						<div class="text">
-							<span class="date">Apr. 14th, 2022</span>
-							<h2>Thought you loved Python? Wait until you meet Rust</h2>
+							<span class="date">{{ $post->created_at  }}</span>
+							<h2>{{ $post->title }}</h2>
 						</div>
 					</a>
+                        
+                    @endforeach
+					
+					
 				</div>
 			</div>
 		</div>
