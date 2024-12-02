@@ -8,24 +8,19 @@
 		<div class="container">
 			<div class="row align-items-stretch retro-layout">
 				<div class="col-md-4">
-					<a href="single.html" class="h-entry mb-30 v-height gradient">
+
+                    @foreach ( $posts as $post )
+                    <a href="single.html" class="h-entry mb-30 v-height gradient">
 
 						<div class="featured-img" style="background-image: url('images/img_2_horizontal.jpg');"></div>
 
 						<div class="text">
-							<span class="date">Apr. 14th, 2022</span>
-							<h2>AI can now kill those annoying cookie pop-ups</h2>
+							<span class="date">{{ $post->created_at }}</span>
+							<h2>{{ $post->title }}</h2>
 						</div>
 					</a>
-					<a href="single.html" class="h-entry v-height gradient">
+                    @endforeach
 
-						<div class="featured-img" style="background-image: url('images/img_5_horizontal.jpg');"></div>
-
-						<div class="text">
-							<span class="date">Apr. 14th, 2022</span>
-							<h2>Don’t assume your user data in the cloud is safe</h2>
-						</div>
-					</a>
 				</div>
 				<div class="col-md-4">
 					<a href="single.html" class="h-entry img-5 h-100 gradient">

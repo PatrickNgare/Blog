@@ -14,6 +14,7 @@ class PostModel extends Model
 
     "id",
     "title",
+    "image",
     "description",
     "category",
     "user_id",
