@@ -13,4 +13,4 @@ Auth::routes();
 
 // Authenticated home route
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'home'])->name('home');
-
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'home'])->name('home');
