@@ -17,11 +17,11 @@ class PostsController extends Controller
         $postTwo = PostModel::query()->orderBy('title', 'desc')->take(2)->get();
 
 
-        //Second Section
+        //Business Section
 
-        
+        $postBiz=PostModel::where('category','business')->take(2);
 
-      return view('posts.index',compact('posts','postOne','postTwo'));
+      return view('posts.index',compact('posts','postOne','postTwo','postBiz'));
 
         }
 
