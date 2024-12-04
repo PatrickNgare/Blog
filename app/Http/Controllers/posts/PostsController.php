@@ -19,9 +19,10 @@ class PostsController extends Controller
 
         //Business Section
 
-        $postBiz=PostModel::where('category','business')->take(2);
+        $postBiz=PostModel::where('category','Business')->take(2)->get();
+        $postBizTwo=PostModel::where('category','Business')->take(3)->orderBy('title', 'desc')->get();
 
-      return view('posts.index',compact('posts','postOne','postTwo','postBiz'));
+      return view('posts.index',compact('posts','postOne','postTwo','postBiz','postBizTwo'));
 
         }
 
