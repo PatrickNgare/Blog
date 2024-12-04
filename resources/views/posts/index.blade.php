@@ -62,7 +62,7 @@
 	<!-- Start posts-entry -->
 	<section class="section posts-entry">
 		<div class="container">
-			<div class="row mb-4">
+			<div class="mb-4 row">
 				<div class="col-sm-6">
 					<h52 class="posts-entry-title">Business</h52>
 				</div>
@@ -120,18 +120,22 @@
 	<section class="section posts-entry posts-entry-sm bg-light">
 		<div class="container">
 			<div class="row">
-				<div class="col-md-6 col-lg-3">
+
+                @foreach ($randomPosts as $post )
+                <div class="col-md-6 col-lg-3">
 					<div class="blog-entry">
-						<a href="single.html" class="img-link">
-							<img src="images/img_1_horizontal.jpg" alt="Image" class="img-fluid">
+						<a href="{{ route('posts.single', $post->id) }}" class="img-link">
+							<img src="{{ asset('assets/images/'.$post->image.'') }}" alt="Image" class="img-fluid">
 						</a>
-						<span class="date">Apr. 14th, 2022</span>
-						<h2><a href="single.html">Thought you loved Python? Wait until you meet Rust</a></h2>
-						<p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-						<p><a href="#" class="read-more">Continue Reading</a></p>
+						<span class="date">{{$post->created_at}}</span>
+						<h2><a href="single.html">{{ $post->title}}</a></h2>
+						<p>{{ substr($post->description,0,100) }}.</p>
+						<p><a href="{{ route('posts.single', $post->id) }}" class="read-more">Continue Reading</a></p>
 					</div>
 				</div>
-				
+                @endforeach
+
+
 			</div>
 		</div>
 	</section>
@@ -140,7 +144,7 @@
 	<!-- Start posts-entry -->
 	<section class="section posts-entry">
 		<div class="container">
-			<div class="row mb-4">
+			<div class="mb-4 row">
 				<div class="col-sm-6">
 					<h2 class="posts-entry-title">Culture</h2>
 				</div>
@@ -204,7 +208,7 @@
 	<section class="section">
 		<div class="container">
 
-			<div class="row mb-4">
+			<div class="mb-4 row">
 				<div class="col-sm-6">
 					<h2 class="posts-entry-title">Politics</h2>
 				</div>
@@ -212,16 +216,16 @@
 			</div>
 
 			<div class="row">
-				<div class="col-lg-4 mb-4">
+				<div class="mb-4 col-lg-4">
 					<div class="post-entry-alt">
 						<a href="single.html" class="img-link"><img src="images/img_7_horizontal.jpg" alt="Image" class="img-fluid"></a>
 						<div class="excerpt">
 
 
 							<h2><a href="single.html">Startup vs corporate: What job suits you best?</a></h2>
-							<div class="post-meta align-items-center text-left clearfix">
-								<figure class="author-figure mb-0 me-3 float-start"><img src="images/person_1.jpg" alt="Image" class="img-fluid"></figure>
-								<span class="d-inline-block mt-1">By <a href="#">David Anderson</a></span>
+							<div class="clearfix text-left post-meta align-items-center">
+								<figure class="mb-0 author-figure me-3 float-start"><img src="images/person_1.jpg" alt="Image" class="img-fluid"></figure>
+								<span class="mt-1 d-inline-block">By <a href="#">David Anderson</a></span>
 								<span>&nbsp;-&nbsp; July 19, 2019</span>
 							</div>
 
@@ -230,16 +234,16 @@
 						</div>
 					</div>
 				</div>
-				<div class="col-lg-4 mb-4">
+				<div class="mb-4 col-lg-4">
 					<div class="post-entry-alt">
 						<a href="single.html" class="img-link"><img src="images/img_2_horizontal.jpg" alt="Image" class="img-fluid"></a>
 						<div class="excerpt">
 
 
 							<h2><a href="single.html">Startup vs corporate: What job suits you best?</a></h2>
-							<div class="post-meta align-items-center text-left clearfix">
-								<figure class="author-figure mb-0 me-3 float-start"><img src="images/person_2.jpg" alt="Image" class="img-fluid"></figure>
-								<span class="d-inline-block mt-1">By <a href="#">David Anderson</a></span>
+							<div class="clearfix text-left post-meta align-items-center">
+								<figure class="mb-0 author-figure me-3 float-start"><img src="images/person_2.jpg" alt="Image" class="img-fluid"></figure>
+								<span class="mt-1 d-inline-block">By <a href="#">David Anderson</a></span>
 								<span>&nbsp;-&nbsp; July 19, 2019</span>
 							</div>
 
@@ -248,16 +252,16 @@
 						</div>
 					</div>
 				</div>
-				<div class="col-lg-4 mb-4">
+				<div class="mb-4 col-lg-4">
 					<div class="post-entry-alt">
 						<a href="single.html" class="img-link"><img src="images/img_5_horizontal.jpg" alt="Image" class="img-fluid"></a>
 						<div class="excerpt">
 
 
 							<h2><a href="single.html">Startup vs corporate: What job suits you best?</a></h2>
-							<div class="post-meta align-items-center text-left clearfix">
-								<figure class="author-figure mb-0 me-3 float-start"><img src="images/person_3.jpg" alt="Image" class="img-fluid"></figure>
-								<span class="d-inline-block mt-1">By <a href="#">David Anderson</a></span>
+							<div class="clearfix text-left post-meta align-items-center">
+								<figure class="mb-0 author-figure me-3 float-start"><img src="images/person_3.jpg" alt="Image" class="img-fluid"></figure>
+								<span class="mt-1 d-inline-block">By <a href="#">David Anderson</a></span>
 								<span>&nbsp;-&nbsp; July 19, 2019</span>
 							</div>
 
@@ -268,16 +272,16 @@
 				</div>
 
 
-				<div class="col-lg-4 mb-4">
+				<div class="mb-4 col-lg-4">
 					<div class="post-entry-alt">
 						<a href="single.html" class="img-link"><img src="images/img_4_horizontal.jpg" alt="Image" class="img-fluid"></a>
 						<div class="excerpt">
 
 
 							<h2><a href="single.html">Startup vs corporate: What job suits you best?</a></h2>
-							<div class="post-meta align-items-center text-left clearfix">
-								<figure class="author-figure mb-0 me-3 float-start"><img src="images/person_4.jpg" alt="Image" class="img-fluid"></figure>
-								<span class="d-inline-block mt-1">By <a href="#">David Anderson</a></span>
+							<div class="clearfix text-left post-meta align-items-center">
+								<figure class="mb-0 author-figure me-3 float-start"><img src="images/person_4.jpg" alt="Image" class="img-fluid"></figure>
+								<span class="mt-1 d-inline-block">By <a href="#">David Anderson</a></span>
 								<span>&nbsp;-&nbsp; July 19, 2019</span>
 							</div>
 
@@ -286,16 +290,16 @@
 						</div>
 					</div>
 				</div>
-				<div class="col-lg-4 mb-4">
+				<div class="mb-4 col-lg-4">
 					<div class="post-entry-alt">
 						<a href="single.html" class="img-link"><img src="images/img_3_horizontal.jpg" alt="Image" class="img-fluid"></a>
 						<div class="excerpt">
 
 
 							<h2><a href="single.html">Startup vs corporate: What job suits you best?</a></h2>
-							<div class="post-meta align-items-center text-left clearfix">
-								<figure class="author-figure mb-0 me-3 float-start"><img src="images/person_5.jpg" alt="Image" class="img-fluid"></figure>
-								<span class="d-inline-block mt-1">By <a href="#">David Anderson</a></span>
+							<div class="clearfix text-left post-meta align-items-center">
+								<figure class="mb-0 author-figure me-3 float-start"><img src="images/person_5.jpg" alt="Image" class="img-fluid"></figure>
+								<span class="mt-1 d-inline-block">By <a href="#">David Anderson</a></span>
 								<span>&nbsp;-&nbsp; July 19, 2019</span>
 							</div>
 
@@ -304,16 +308,16 @@
 						</div>
 					</div>
 				</div>
-				<div class="col-lg-4 mb-4">
+				<div class="mb-4 col-lg-4">
 					<div class="post-entry-alt">
 						<a href="single.html" class="img-link"><img src="images/img_2_horizontal.jpg" alt="Image" class="img-fluid"></a>
 						<div class="excerpt">
 
 
 							<h2><a href="single.html">Startup vs corporate: What job suits you best?</a></h2>
-							<div class="post-meta align-items-center text-left clearfix">
-								<figure class="author-figure mb-0 me-3 float-start"><img src="images/person_4.jpg" alt="Image" class="img-fluid"></figure>
-								<span class="d-inline-block mt-1">By <a href="#">David Anderson</a></span>
+							<div class="clearfix text-left post-meta align-items-center">
+								<figure class="mb-0 author-figure me-3 float-start"><img src="images/person_4.jpg" alt="Image" class="img-fluid"></figure>
+								<span class="mt-1 d-inline-block">By <a href="#">David Anderson</a></span>
 								<span>&nbsp;-&nbsp; July 19, 2019</span>
 							</div>
 
@@ -324,16 +328,16 @@
 				</div>
 
 
-				<div class="col-lg-4 mb-4">
+				<div class="mb-4 col-lg-4">
 					<div class="post-entry-alt">
 						<a href="single.html" class="img-link"><img src="images/img_1_horizontal.jpg" alt="Image" class="img-fluid"></a>
 						<div class="excerpt">
 
 
 							<h2><a href="single.html">Startup vs corporate: What job suits you best?</a></h2>
-							<div class="post-meta align-items-center text-left clearfix">
-								<figure class="author-figure mb-0 me-3 float-start"><img src="images/person_3.jpg" alt="Image" class="img-fluid"></figure>
-								<span class="d-inline-block mt-1">By <a href="#">David Anderson</a></span>
+							<div class="clearfix text-left post-meta align-items-center">
+								<figure class="mb-0 author-figure me-3 float-start"><img src="images/person_3.jpg" alt="Image" class="img-fluid"></figure>
+								<span class="mt-1 d-inline-block">By <a href="#">David Anderson</a></span>
 								<span>&nbsp;-&nbsp; July 19, 2019</span>
 							</div>
 
@@ -342,7 +346,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col-lg-4 mb-4">
+				<div class="mb-4 col-lg-4">
 					<div class="post-entry-alt">
 						<a href="single.html" class="img-link"><img src="images/img_4_horizontal.jpg" alt="Image" class="img-fluid"></a>
 						<div class="excerpt">
@@ -350,9 +354,9 @@
 
 
 							<h2><a href="single.html">Startup vs corporate: What job suits you best?</a></h2>
-							<div class="post-meta align-items-center text-left clearfix">
-								<figure class="author-figure mb-0 me-3 float-start"><img src="images/person_2.jpg" alt="Image" class="img-fluid"></figure>
-								<span class="d-inline-block mt-1">By <a href="#">David Anderson</a></span>
+							<div class="clearfix text-left post-meta align-items-center">
+								<figure class="mb-0 author-figure me-3 float-start"><img src="images/person_2.jpg" alt="Image" class="img-fluid"></figure>
+								<span class="mt-1 d-inline-block">By <a href="#">David Anderson</a></span>
 								<span>&nbsp;-&nbsp; July 19, 2019</span>
 							</div>
 							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo sunt tempora dolor laudantium sed optio, explicabo ad deleniti impedit facilis fugit recusandae! Illo, aliquid, dicta beatae quia porro id est.</p>
@@ -360,7 +364,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col-lg-4 mb-4">
+				<div class="mb-4 col-lg-4">
 					<div class="post-entry-alt">
 						<a href="single.html" class="img-link"><img src="images/img_3_horizontal.jpg" alt="Image" class="img-fluid"></a>
 						<div class="excerpt">
@@ -368,9 +372,9 @@
 
 
 							<h2><a href="single.html">Startup vs corporate: What job suits you best?</a></h2>
-							<div class="post-meta align-items-center text-left clearfix">
-								<figure class="author-figure mb-0 me-3 float-start"><img src="images/person_5.jpg" alt="Image" class="img-fluid"></figure>
-								<span class="d-inline-block mt-1">By <a href="#">David Anderson</a></span>
+							<div class="clearfix text-left post-meta align-items-center">
+								<figure class="mb-0 author-figure me-3 float-start"><img src="images/person_5.jpg" alt="Image" class="img-fluid"></figure>
+								<span class="mt-1 d-inline-block">By <a href="#">David Anderson</a></span>
 								<span>&nbsp;-&nbsp; July 19, 2019</span>
 							</div>
 
@@ -387,7 +391,7 @@
 	<div class="section bg-light">
 		<div class="container">
 
-			<div class="row mb-4">
+			<div class="mb-4 row">
 				<div class="col-sm-6">
 					<h2 class="posts-entry-title">Travel</h2>
 				</div>
@@ -410,7 +414,7 @@
 
 					<a href="single.html" class="hentry img-2 v-height mb30 gradient">
 						<div class="featured-img" style="background-image: url('images/img_1_horizontal.jpg');"></div>
-						<div class="text text-sm">
+						<div class="text-sm text">
 							<span>February 12, 2019</span>
 							<h2>AI can now kill those annoying cookie pop-ups</h2>
 						</div>
@@ -419,14 +423,14 @@
 					<div class="two-col d-block d-md-flex justify-content-between">
 						<a href="single.html" class="hentry v-height img-2 gradient">
 							<div class="featured-img" style="background-image: url('images/img_2_sq.jpg');"></div>
-							<div class="text text-sm">
+							<div class="text-sm text">
 								<span>February 12, 2019</span>
 								<h2>Don’t assume your user data in the cloud is safe</h2>
 							</div>
 						</a>
 						<a href="single.html" class="hentry v-height img-2 ms-auto float-end gradient">
 							<div class="featured-img" style="background-image: url('images/img_3_sq.jpg');"></div>
-							<div class="text text-sm">
+							<div class="text-sm text">
 								<span>February 12, 2019</span>
 								<h2>Startup vs corporate: What job suits you best?</h2>
 							</div>

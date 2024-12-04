@@ -27,6 +27,8 @@ class PostsController extends Controller
 
         $randomPosts = PostModel::take(4)->orderby('category','desc')->get();
 
+        
+
 
       return view('posts.index',compact('posts','postOne','postTwo','postBiz','postBizTwo','randomPosts'));
 
