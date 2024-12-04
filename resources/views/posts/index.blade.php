@@ -90,7 +90,7 @@
                             </div>
                         </div>
                         @endforeach
-                        
+
 
 					</div>
 				</div>
@@ -105,9 +105,9 @@
 							<p><p>{{ $post->description }}</p></p>
 							<p><a href="{{ route('posts.single', $post->id) }}" class="read-more">Continue Reading</a></p>
 						</li>
-                            
+
                         @endforeach
-						
+
 
 					</ul>
 				</div>
@@ -131,39 +131,7 @@
 						<p><a href="#" class="read-more">Continue Reading</a></p>
 					</div>
 				</div>
-				<div class="col-md-6 col-lg-3">
-					<div class="blog-entry">
-						<a href="single.html" class="img-link">
-							<img src="images/img_2_horizontal.jpg" alt="Image" class="img-fluid">
-						</a>
-						<span class="date">Apr. 14th, 2022</span>
-						<h2><a href="single.html">Startup vs corporate: What job suits you best?</a></h2>
-						<p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-						<p><a href="#" class="read-more">Continue Reading</a></p>
-					</div>
-				</div>
-				<div class="col-md-6 col-lg-3">
-					<div class="blog-entry">
-						<a href="single.html" class="img-link">
-							<img src="images/img_3_horizontal.jpg" alt="Image" class="img-fluid">
-						</a>
-						<span class="date">Apr. 14th, 2022</span>
-						<h2><a href="single.html">UK sees highest inflation in 30 years</a></h2>
-						<p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-						<p><a href="#" class="read-more">Continue Reading</a></p>
-					</div>
-				</div>
-				<div class="col-md-6 col-lg-3">
-					<div class="blog-entry">
-						<a href="single.html" class="img-link">
-							<img src="images/img_4_horizontal.jpg" alt="Image" class="img-fluid">
-						</a>
-						<span class="date">Apr. 14th, 2022</span>
-						<h2><a href="single.html">Don’t assume your user data in the cloud is safe</a></h2>
-						<p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-						<p><a href="#" class="read-more">Continue Reading</a></p>
-					</div>
-				</div>
+				
 			</div>
 		</div>
 	</section>

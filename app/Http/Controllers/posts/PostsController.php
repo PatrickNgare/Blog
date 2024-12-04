@@ -9,7 +9,7 @@ use App\Models\post\PostModel;
 class PostsController extends Controller
 {
     public function index(){
-        
+
 
         //First Section
         $posts=PostModel::all()->take(2);
@@ -22,7 +22,13 @@ class PostsController extends Controller
         $postBiz=PostModel::where('category','Business')->take(2)->get();
         $postBizTwo=PostModel::where('category','Business')->take(3)->orderBy('title', 'desc')->get();
 
-      return view('posts.index',compact('posts','postOne','postTwo','postBiz','postBizTwo'));
+
+        //Random postsection
+
+        $randomPosts = PostModel::take(4)->orderby('category','desc')->get();
+
+
+      return view('posts.index',compact('posts','postOne','postTwo','postBiz','postBizTwo','randomPosts'));
 
         }
 
