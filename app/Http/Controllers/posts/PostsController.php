@@ -31,8 +31,13 @@ class PostsController extends Controller
       //Culture Section
 
       $postCulture=PostModel::where('category','Culture')->take(2)->get();
+      $postCultureTwo=PostModel::where('category','Culture')->take(3)->orderBy('title', 'desc')->get();
 
-      return view('posts.index',compact('posts','postOne','postTwo','postBiz','postBizTwo','randomPosts'));
+      //Politics Section
+
+      $postPolitics=PostModel::where('category','Politics')->take(9)->get();
+
+      return view('posts.index',compact('posts','postOne','postTwo','postBiz','postBizTwo','randomPosts','postCulture','postCultureTwo','postPolitics'));
 
         }
 
