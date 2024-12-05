@@ -14,4 +14,4 @@ Auth::routes();
 // Authenticated home route
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'home'])->name('home');
 Route::get('/posts/index', [App\Http\Controllers\posts\PostsController::class, 'index'])->name('posts.index');
-Route::get('/posts/single/1', [App\Http\Controllers\posts\PostsController::class, 'single'])->name('posts.single');
+Route::get('/posts/single/{id}', [App\Http\Controllers\posts\PostsController::class, 'single'])->name('posts.single');
