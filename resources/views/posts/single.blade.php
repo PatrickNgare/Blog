@@ -2,7 +2,7 @@
 
 @section('content')
 
-<div class="site-cover site-cover-sm same-height overlay single-page" style="background-image: url({{asset('assets/images/'.$single->image .'')   }});">
+<div class="site-cover site-cover-sm same-height overlay single-page" style= "margin-top: -25px; background-image: url({{asset('assets/images/'.$single->image .'')   }});">
     <div class="container">
       <div class="row same-height justify-content-center">
         <div class="col-md-6">
