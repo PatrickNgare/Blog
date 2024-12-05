@@ -19,8 +19,8 @@ class PostsController extends Controller
 
         //Business Section
 
-        $postBiz=PostModel::where('category','Business')->take(2)->get();
-        $postBizTwo=PostModel::where('category','Business')->take(3)->orderBy('title', 'desc')->get();
+        $postBiz=PostModel::where('category','Business')->take(2)->orderBy('id', 'desc')->get();
+        $postBizTwo=PostModel::where('category','Business')->take(3)->orderBy('category', 'desc')->get();
 
 
         //Random postsection
@@ -30,16 +30,16 @@ class PostsController extends Controller
 
       //Culture Section
 
-      $postCulture=PostModel::where('category','Culture')->take(2)->get();
-      $postCultureTwo=PostModel::where('category','Culture')->take(3)->orderBy('title', 'desc')->get();
+      $postCulture=PostModel::where('category','Culture')->take(2)->orderBy('id', 'desc')->get();
+      $postCultureTwo=PostModel::where('category','Culture')->take(3)->orderBy('id', 'desc')->get();
 
       //Politics Section
 
-      $postPolitics=PostModel::where('category','Politics')->take(9)->get();
+      $postPolitics=PostModel::where('category','Politics')->take(9)->orderBy('created_at', 'asc')->get();
 
 
       //travel section
-      $postTravel=PostModel::where('category','Travel')->take(1)->get();
+      $postTravel=PostModel::where('category','Travel')->take(1)->orderBy('id', 'desc')->get();
       $postTravelOne=PostModel::where('category','Travel')->take(1)->orderBy('title', 'desc')->get();
       $postTraveltwo=PostModel::where('category','Travel')->take(2)->orderBy('description', 'desc')->get();
 
@@ -48,6 +48,12 @@ class PostsController extends Controller
         }
 
         public function single($id){
+
+
+            $single=PostModel::find($id);
+
+
+            return view('posts.single',compact('single'));
 
         }
     }
