@@ -203,7 +203,7 @@
 
                 <div class="mb-4 col-lg-4">
 					<div class="post-entry-alt">
-						<a href="single.html" class="img-link"><img src="{{asset('assets/images'.$post->image.'')}}" alt="Image" class="img-fluid"></a>
+						<a href="{{ route('posts.single', $post->id) }}" class="img-link"><img src="{{asset('assets/images'.$post->image.'')}}" alt="Image" class="img-fluid"></a>
 						<div class="excerpt">
 
 
@@ -239,16 +239,21 @@
 			</div>
 
 			<div class="row align-items-stretch retro-layout-alt">
+                @foreach ($postTravel as $post )
 
-				<div class="col-md-5 order-md-2">
-					<a href="single.html" class="hentry img-1 h-100 gradient">
-						<div class="featured-img" style="background-image: url('images/img_2_vertical.jpg');"></div>
+                <div class="col-md-5 order-md-2">
+					<a href="{{ route('posts.single', $post->id) }}" class="hentry img-1 h-100 gradient">
+						<div class="featured-img" style="background-image: url('{{asset('assets/images'.$post->image.'')}}');"></div>
 						<div class="text">
-							<span>February 12, 2019</span>
-							<h2>Meta unveils fees on metaverse sales</h2>
+							<span>{{  $post->created_at}}</span>
+							<h2>{{$post->title}}</h2>
 						</div>
 					</a>
 				</div>
+
+                @endforeach
+
+
 
 				<div class="col-md-7">
 

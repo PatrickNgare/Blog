@@ -38,9 +38,11 @@ class PostsController extends Controller
       $postPolitics=PostModel::where('category','Politics')->take(9)->get();
 
 
-      //travel section 
+      //travel section
+      $postTravel=PostModel::where('category','Politics')->take(1)->get();
 
-      return view('posts.index',compact('posts','postOne','postTwo','postBiz','postBizTwo','randomPosts','postCulture','postCultureTwo','postPolitics'));
+
+      return view('posts.index',compact('posts','postOne','postTwo','postBiz','postBizTwo','randomPosts','postCulture','postCultureTwo','postPolitics','postTravel'));
 
         }
 
