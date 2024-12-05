@@ -23,14 +23,14 @@
 
 				</div>
 				<div class="col-md-4">
-                    @foreach ( $postOne as $justPost )
-                    <a href="{{route('posts.single', $justPost->id)}}" class="h-entry img-5 h-100 gradient">
+                    @foreach ( $postOne as $post )
+                    <a href="{{route('posts.single', $post->id)}}" class="h-entry img-5 h-100 gradient">
 
-						<div class="featured-img" style="background-image: url('{{ asset('assets/images/' . $justPost->image) }}');"></div>
+						<div class="featured-img" style="background-image: url('{{ asset('assets/images/' . $post->image) }}');"></div>
 
 						<div class="text">
-							<span class="date">{{ $justPost->created_at }}</span>
-							<h2>{{ $justPost->title }}</h2>
+							<span class="date">{{ $post->created_at }}</span>
+							<h2>{{ $post->title }}</h2>
 						</div>
 					</a>
                     @endforeach
@@ -40,7 +40,7 @@
 
                     @foreach ( $postTwo as $post)
 
-                    <a href="single.html" class="h-entry mb-30 v-height gradient">
+                    <a href="{{route('posts.single', $post->id)}}" class="h-entry mb-30 v-height gradient">
 
 						<div class="featured-img" style="background-image: url('{{ asset('assets/images/'.$post->image.'') }}');"></div>
 
