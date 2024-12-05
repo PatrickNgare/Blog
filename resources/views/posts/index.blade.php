@@ -203,13 +203,13 @@
 
                 <div class="mb-4 col-lg-4">
 					<div class="post-entry-alt">
-						<a href="{{ route('posts.single', $post->id) }}" class="img-link"><img src="{{asset('assets/images'.$post->image.'')}}" alt="Image" class="img-fluid"></a>
+						<a href="{{ route('posts.single', $post->id) }}" class="img-link"><img src="{{asset('assets/images/'.$post->image.'')}}" alt="Image" class="img-fluid"></a>
 						<div class="excerpt">
 
 
 							<h2><a href="{{ route('posts.single', $post->id) }}">{{$post->title}}</a></h2>
 							<div class="clearfix text-left post-meta align-items-center">
-								<figure class="mb-0 author-figure me-3 float-start"><img src="{{asset('assets/images'.$post->image.'')}}" alt="Image" class="img-fluid"></figure>
+								<figure class="mb-0 author-figure me-3 float-start"><img src="{{asset('assets/images/'.$post->image.'')}}" alt="Image" class="img-fluid"></figure>
 								<span class="mt-1 d-inline-block">By <a href="#">{{ $post->user_name}}</a></span>
 								<span>&nbsp;-&nbsp;{{$post->created_at}} </span>
 							</div>
@@ -243,7 +243,7 @@
 
                 <div class="col-md-5 order-md-2">
 					<a href="{{ route('posts.single', $post->id) }}" class="hentry img-1 h-100 gradient">
-						<div class="featured-img" style="background-image: url('{{asset('assets/images'.$post->image.'')}}');"></div>
+						<div class="featured-img" style="background-image: url('{{asset('assets/images/'.$post->image.'')}}');"></div>
 						<div class="text">
 							<span>{{  $post->created_at}}</span>
 							<h2>{{$post->title}}</h2>
@@ -257,29 +257,35 @@
 
 				<div class="col-md-7">
 
-					<a href="single.html" class="hentry img-2 v-height mb30 gradient">
-						<div class="featured-img" style="background-image: url('images/img_1_horizontal.jpg');"></div>
+                    @foreach ( $postTravelOne as $post )
+
+                    <a href="single.html" class="hentry img-2 v-height mb30 gradient">
+						<div class="featured-img" style="background-image: url('{{asset('assets/images/'.$post->image.'')}}');"></div>
 						<div class="text-sm text">
-							<span>February 12, 2019</span>
-							<h2>AI can now kill those annoying cookie pop-ups</h2>
+							<span>{{$post->created_at}}</span>
+							<h2>{{$post->title}}</h2>
 						</div>
 					</a>
 
+                    @endforeach
+
+
+
 					<div class="two-col d-block d-md-flex justify-content-between">
-						<a href="single.html" class="hentry v-height img-2 gradient">
-							<div class="featured-img" style="background-image: url('images/img_2_sq.jpg');"></div>
+
+                        @foreach ($postTraveltwo as $post )
+
+                        <a href="single.html" class="hentry v-height img-2 gradient">
+							<div class="featured-img" style="background-image: url('{{asset('assets/images/'.$post->image.'')}}');"></div>
 							<div class="text-sm text">
-								<span>February 12, 2019</span>
-								<h2>Don’t assume your user data in the cloud is safe</h2>
+								<span>{{$post->created_at}}</span>
+								<h2>{{$post->title}}</h2>
 							</div>
 						</a>
-						<a href="single.html" class="hentry v-height img-2 ms-auto float-end gradient">
-							<div class="featured-img" style="background-image: url('images/img_3_sq.jpg');"></div>
-							<div class="text-sm text">
-								<span>February 12, 2019</span>
-								<h2>Startup vs corporate: What job suits you best?</h2>
-							</div>
-						</a>
+
+                        @endforeach
+
+
 					</div>
 
 				</div>
