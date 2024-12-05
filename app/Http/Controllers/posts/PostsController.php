@@ -41,7 +41,7 @@ class PostsController extends Controller
       //travel section
       $postTravel=PostModel::where('category','Travel')->take(1)->get();
       $postTravelOne=PostModel::where('category','Travel')->take(1)->orderBy('title', 'desc')->get();
-      $postTraveltwo=PostModel::where('category','Travel')->take(1)->orderBy('description', 'desc')->get();
+      $postTraveltwo=PostModel::where('category','Travel')->take(2)->orderBy('description', 'desc')->get();
 
       return view('posts.index',compact('posts','postOne','postTwo','postBiz','postBizTwo','randomPosts','postCulture','postCultureTwo','postPolitics','postTravel','postTravelOne','postTraveltwo'));
 
