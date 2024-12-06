@@ -51,9 +51,10 @@ class PostsController extends Controller
 
 
             $single=PostModel::find($id);
+            $user=User::find($single->user_id)
 
 
-            return view('posts.single',compact('single'));
+            return view('posts.single',compact('single','user'));
 
         }
     }
