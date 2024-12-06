@@ -5,6 +5,9 @@ namespace App\Http\Controllers\posts;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\post\PostModel;
+use App\Models\Category;
+use App\Models\User;
+use Illuminate\Support\Facades\DB;
 
 class PostsController extends Controller
 {
@@ -51,10 +54,24 @@ class PostsController extends Controller
 
 
             $single=PostModel::find($id);
+<<<<<<< HEAD
             $user = User::find($single->user_id);
 
 
             return view('posts.single',compact('single','user'));
+=======
+            $user=User::find($single->user_id);
+            $postPopular=PostModel::take(3)->orderBy('id', 'desc')->get();
+            $categories = DB::table('categories')
+               ->join('posts', 'posts.user_id', '=', 'categories.id')
+               ->select('categories.name AS name', 'categories.id AS id', 'posts.user_id AS user_id', DB::raw('COUNT(posts.user_id) AS total'))
+               ->groupBy('categories.name', 'categories.id', 'posts.user_id')
+               ->get();
+
+
+              //print_r($categories);
+            return view('posts.single',compact('single','user','postPopular','categories'));
+>>>>>>> dev
 
         }
     }
