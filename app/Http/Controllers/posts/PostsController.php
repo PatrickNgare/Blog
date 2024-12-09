@@ -54,12 +54,6 @@ class PostsController extends Controller
 
 
             $single=PostModel::find($id);
-<<<<<<< HEAD
-            $user = User::find($single->user_id);
-
-
-            return view('posts.single',compact('single','user'));
-=======
             $user=User::find($single->user_id);
             $postPopular=PostModel::take(3)->orderBy('id', 'desc')->get();
             $categories = DB::table('categories')
@@ -70,9 +64,8 @@ class PostsController extends Controller
 
 
               //print_r($categories);
-            //another commet 
+            //another commet
             return view('posts.single',compact('single','user','postPopular','categories'));
->>>>>>> dev
 
         }
     }
