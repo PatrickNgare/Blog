@@ -70,6 +70,7 @@ class PostsController extends Controller
 
 
               //print_r($categories);
+            //another commet 
             return view('posts.single',compact('single','user','postPopular','categories'));
 >>>>>>> dev
 
