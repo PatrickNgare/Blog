@@ -5,6 +5,7 @@ namespace App\Http\Controllers\posts;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\post\PostModel;
+use App\Models\post\Comment;
 use App\Models\Category;
 use App\Models\User;
 use Illuminate\Support\Facades\DB;
@@ -64,8 +65,18 @@ class PostsController extends Controller
 
 
               //print_r($categories);
+<<<<<<< HEAD
             //another commet
             return view('posts.single',compact('single','user','postPopular','categories'));
+=======
+
+            //another comment
+
+            $comments=Comment::where('post_id',$id)->get();
+
+
+            return view('posts.single',compact('single','user','postPopular','categories','comments'));
+>>>>>>> dev
 
         }
     }
