@@ -37,9 +37,17 @@
           </div>
 
 
+            @if(\Session::has("success"))
 
+          <div class="alert alert-sucess">
+            <p>  {!! \Session::get('success')!!}   </p>
+          </div>
+            @endif
           <div class="pt-5 comment-wrap">
-            <h3 class="mb-5 heading">6 Comments</h3>
+
+            <h3 class="mb-5 heading">{{ $commentNum }}</h3>
+
+
             <ul class="comment-list">
                      @foreach ($comments as $comment )
 
@@ -63,26 +71,21 @@
 
             <div class="pt-5 comment-form-wrap">
               <h3 class="mb-5">Leave a comment</h3>
-              <form action="#" class="p-5 bg-light">
+              <form action="{{ route('comment.store') }}" method ="POST" class="p-5 bg-light">
+
+                @csrf
                 <div class="form-group">
-                  <label for="name">Name *</label>
-                  <input type="text" class="form-control" id="name">
-                </div>
-                <div class="form-group">
-                  <label for="email">Email *</label>
-                  <input type="email" class="form-control" id="email">
-                </div>
-                <div class="form-group">
-                  <label for="website">Website</label>
-                  <input type="url" class="form-control" id="website">
+
+                  <input type="hidden" name="post_id" value="{{ $single->id }}" class="form-control" id="name">
                 </div>
 
+
                 <div class="form-group">
-                  <label for="message">Message</label>
-                  <textarea name="" id="message" cols="30" rows="10" class="form-control"></textarea>
+                  <label for="message">Comment</label>
+                  <textarea placeholder="comment" name="comment" id="message" cols="30" rows="10" class="form-control"></textarea>
                 </div>
                 <div class="form-group">
-                  <input type="submit" value="Post Comment" class="btn btn-primary">
+                  <input type="submit" name="submit" value="Post Comment" class="btn btn-primary">
                 </div>
 
               </form>
@@ -166,50 +169,22 @@
         <div class="text-black col-12 text-uppercase">More Blog Posts</div>
       </div>
       <div class="row">
+
+        @foreach ($moreBlogs as $post )
         <div class="col-md-6 col-lg-3">
-          <div class="blog-entry">
-            <a href="single.html" class="img-link">
-              <img src="images/img_1_horizontal.jpg" alt="Image" class="img-fluid">
-            </a>
-            <span class="date">Apr. 14th, 2022</span>
-            <h2><a href="single.html">Thought you loved Python? Wait until you meet Rust</a></h2>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-            <p><a href="#" class="read-more">Continue Reading</a></p>
+            <div class="blog-entry">
+              <a href="single.html" class="img-link">
+                <img src="{{ asset('assets/images/'. $post->image .'')  }}" alt="Image" class="img-fluid">
+              </a>
+              <span class="date">{{  $post->created_at }}</span>
+              <h2><a href="{{route('posts.single',$post->id)}}">{{substr($post->title,0,40)}}</a></h2>
+              <p>{{ substr($post->description,0,40) }}</p>
+              <p><a href="{{route('posts.single',$post->id)}}" class="read-more">Continue Reading</a></p>
+            </div>
           </div>
-        </div>
-        <div class="col-md-6 col-lg-3">
-          <div class="blog-entry">
-            <a href="single.html" class="img-link">
-              <img src="images/img_2_horizontal.jpg" alt="Image" class="img-fluid">
-            </a>
-            <span class="date">Apr. 14th, 2022</span>
-            <h2><a href="single.html">Startup vs corporate: What job suits you best?</a></h2>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-            <p><a href="#" class="read-more">Continue Reading</a></p>
-          </div>
-        </div>
-        <div class="col-md-6 col-lg-3">
-          <div class="blog-entry">
-            <a href="single.html" class="img-link">
-              <img src="images/img_3_horizontal.jpg" alt="Image" class="img-fluid">
-            </a>
-            <span class="date">Apr. 14th, 2022</span>
-            <h2><a href="single.html">UK sees highest inflation in 30 years</a></h2>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-            <p><a href="#" class="read-more">Continue Reading</a></p>
-          </div>
-        </div>
-        <div class="col-md-6 col-lg-3">
-          <div class="blog-entry">
-            <a href="single.html" class="img-link">
-              <img src="images/img_4_horizontal.jpg" alt="Image" class="img-fluid">
-            </a>
-            <span class="date">Apr. 14th, 2022</span>
-            <h2><a href="single.html">Don’t assume your user data in the cloud is safe</a></h2>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-            <p><a href="#" class="read-more">Continue Reading</a></p>
-          </div>
-        </div>
+
+        @endforeach
+
       </div>
     </div>
   </section>

@@ -9,6 +9,7 @@ use App\Models\post\Comment;
 use App\Models\Category;
 use App\Models\User;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 
 class PostsController extends Controller
 {
@@ -73,11 +74,38 @@ class PostsController extends Controller
             //another comment
 
             $comments=Comment::where('post_id',$id)->get();
+            $commentNum=$comments->count();
+            $moreBlogs =PostModel::where('category',$single->category)
+            ->where('id','!=', $id
+            )->take(4)
+            ->get();
 
 
+<<<<<<< HEAD
             return view('posts.single',compact('single','user','postPopular','categories','comments'));
+>>>>>>> dev
+=======
+            return view('posts.single',compact('single','user','postPopular','categories','comments','moreBlogs','commentNum'));
 >>>>>>> dev
 
         }
+
+    public function storeComment(Request $request){
+
+
+        $insertComment=Comment::create([
+            "comment"=>$request->comment,
+            "user_id"=>Auth::User()->id,
+            "user_name"=>Auth::User()->name,
+            "post_id"=>$request->post_id,
+
+
+
+        ]);
+
+       return redirect('/posts/single/'.$request->post_id.'')->with('success','Comment added successfully' );
+    }
+
+
     }
 
