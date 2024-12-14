@@ -69,9 +69,13 @@ class PostsController extends Controller
             //another comment
 
             $comments=Comment::where('post_id',$id)->get();
+            $moreBlogs =PostModel::where('category',$single->category)
+            ->where('id','!=', $id
+            )->take(4)
+            ->get();
 
 
-            return view('posts.single',compact('single','user','postPopular','categories','comments'));
+            return view('posts.single',compact('single','user','postPopular','categories','comments','moreBlogs'));
 
         }
     }
