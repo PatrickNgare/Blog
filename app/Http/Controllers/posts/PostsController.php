@@ -93,7 +93,7 @@ class PostsController extends Controller
 
         ]);
 
-        echo "<script>alert('inserted');</script>";
+       return redirect('/posts/single/'.$request->post_id.'')->with('success','Comment added succesfully' );
     }
 
 
