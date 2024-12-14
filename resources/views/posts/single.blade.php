@@ -44,7 +44,10 @@
           </div>
             @endif
           <div class="pt-5 comment-wrap">
-            <h3 class="mb-5 heading">6 Comments</h3>
+
+            <h3 class="mb-5 heading">{{ $commentNum }}</h3>
+
+
             <ul class="comment-list">
                      @foreach ($comments as $comment )
 
