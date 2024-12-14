@@ -37,7 +37,12 @@
           </div>
 
 
+            @if(\Session::has("success"))
 
+          <div class="alert alert-sucess">
+            <p>  {!! \Session::get('success')!!}   </p>
+          </div>
+            @endif
           <div class="pt-5 comment-wrap">
             <h3 class="mb-5 heading">6 Comments</h3>
             <ul class="comment-list">
@@ -67,7 +72,7 @@
 
                 @csrf
                 <div class="form-group">
-                  
+
                   <input type="hidden" name="post_id" value="{{ $single->id }}" class="form-control" id="name">
                 </div>
 
