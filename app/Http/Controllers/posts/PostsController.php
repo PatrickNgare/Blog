@@ -146,8 +146,9 @@ class PostsController extends Controller
 
      public function deletePost($id){
 
-          
-      
+          $deletePost=PostModel::find($id);
+          $deletePost->delete();
+          return redirect('/posts/index')->with('delete', 'Post Deleted successfully');
 
             }
     }

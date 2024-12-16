@@ -7,6 +7,11 @@
 	<section class="section bg-light">
 		<div class="container">
 			<div class="row align-items-stretch retro-layout">
+                @if(\Session::has("delete"))
+                <div class="alert alert-sucess">
+                  <p>  {!! \Session::get('delete')!!}   </p>
+                </div>
+                  @endif
 				<div class="col-md-4">
 
                     @foreach ( $posts as $post )
