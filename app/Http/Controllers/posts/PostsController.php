@@ -102,5 +102,28 @@ class PostsController extends Controller
         return view("posts.create-post");
     }
 
+    public function storePost(Request $request){
+
+            
+        $insertPost=PostModel::create([
+            "title"=>$request->title,
+            "category"=>$request->category,
+            "user_id"=>Auth::User()->id,
+            "user_name"=>Auth::User()->name,
+            "description"=>$request->description,
+
+            
+
+        ]);
+        $destinationPath='assests/images/';
+        $myImage=$request->image->getClientOriginalName();
+        $request->image->move(public_path($destinationPath),$myImage);
+
+       return redirect('/posts/create-post')->with('success','Post added successfully' );
+
+
+
+    }
+
     }
 
