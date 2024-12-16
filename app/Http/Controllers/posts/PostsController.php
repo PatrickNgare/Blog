@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\post\PostModel;
 use App\Models\post\Comment;
-use App\Models\Category;
+use App\Models\post\Category;
 use App\Models\User;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
@@ -99,7 +99,9 @@ class PostsController extends Controller
 
     public function CreatePost(){
 
-        return view("posts.create-post");
+        $categories = Category::select('name')->distinct()->get();
+        
+        return view("posts.create-post",compact('categories'));
     }
 
  public function storePost(Request $request){

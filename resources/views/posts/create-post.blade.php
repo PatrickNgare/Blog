@@ -26,9 +26,12 @@
 
             <select name="category" class="form-select" aria-label="Default select example">
                 <option selected>Categories</option>
-                <option value="Culture">Culture</option>
-                <option value="Travel">Travel</option>
-                <option value="Politics">Politics</option>
+
+                @foreach($categories as $category)
+                <option value="{{ $category->name  }}">{{ $category->name  }}</option>
+                @endforeach
+                
+                
               </select>
            </div>
 
@@ -43,7 +46,7 @@
             <textarea placeholder="Description" name="description"  cols="30" rows="10" class="form-control"></textarea>
           </div>
           <div class="form-group">
-            <input type="submit" name="submit" value="Post Comment" class="btn btn-primary">
+            <input type="submit" name="submit" value="Create Post" class="btn btn-primary">
           </div>
 
         </form>
