@@ -7,7 +7,7 @@
 
     <div class="pt-5 comment-form-wrap">
         <h3 class="mb-5">Update the  Post</h3>
-        <form action="#" method ="POST" class="p-5 bg-light" enctype="multipart/form-data">
+        <form action="{{ route('posts.update',$single->id)  }}" method ="POST" class="p-5 bg-light" enctype="multipart/form-data">
 
           @csrf
           <div class="form-group">
@@ -30,7 +30,7 @@
 
           <div class="form-group">
             <label for="message">Description</label>
-            <textarea value="{{ $single->description }}"  placeholder="Description" name="description"  cols="30" rows="10" class="form-control"></textarea>
+            <textarea  placeholder="Description" name="description"  cols="30" rows="10" class="form-control">{{ $single->description }}</textarea>
           </div>
           <div class="form-group">
             <input type="submit" name="submit" value="Update Post" class="btn btn-primary">

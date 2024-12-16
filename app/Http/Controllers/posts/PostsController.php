@@ -10,6 +10,7 @@ use App\Models\post\Category;
 use App\Models\User;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
+use PHPUnit\TextUI\XmlConfiguration\UpdateSchemaLocation;
 
 class PostsController extends Controller
 {
@@ -158,6 +159,18 @@ class PostsController extends Controller
                 $categories = Category::select('name')->distinct()->get();
 
                 return view("posts.edit-post",compact('single','categories'));
+            }
+
+            public function updatePost(Request $request, $id){
+
+                $updatePost=PostModel::find($id);
+
+                $updatePost->update($request->all());
+
+                if($updatePost){
+                    return redirect('/posts/single/'. $updatePost->id.'')->with('update', 'Post Updated successfully');
+                }
+
             }
     }
 
