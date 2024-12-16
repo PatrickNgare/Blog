@@ -14,7 +14,7 @@
           </div>
             @endif
         <h3 class="mb-5">Create a New Post</h3>
-        <form action="{{ route('comment.store') }}" method ="POST" class="p-5 bg-light">
+        <form action="{{ route('posts.store') }}" method ="POST" class="p-5 bg-light" enctype="multipart/form-data">
 
           @csrf
           <div class="form-group">

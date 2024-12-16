@@ -102,28 +102,43 @@ class PostsController extends Controller
         return view("posts.create-post");
     }
 
-    public function storePost(Request $request){
+ public function storePost(Request $request){
+    // Validate the form data including the image upload
+    $request->validate([
+        'title' => 'required|string',
+        'category' => 'required|string',
+        'description' => 'required|string',
+        'image' => 'required|file|mimes:jpg,jpeg,png|max:2048', // Ensure it's a valid image
+    ]);
 
-            
-        $insertPost=PostModel::create([
-            "title"=>$request->title,
-            "category"=>$request->category,
-            "user_id"=>Auth::User()->id,
-            "user_name"=>Auth::User()->name,
-            "description"=>$request->description,
-
-            
-
+    // Check if the image is uploaded and valid
+    if ($request->hasFile('image') && $request->file('image')->isValid()) {
+        // Define the destination path for saving the image
+        $destinationPath = 'assets/images/';
+        
+        // Get the original file name of the image
+        $fileName = $request->image->getClientOriginalName();
+        
+        // Move the file to the destination folder
+        $request->image->move(public_path($destinationPath), $fileName);
+        
+        // Create a new post in the database
+        $insertPost = PostModel::create([
+            "title" => $request->title,
+            "category" => $request->category,
+            "user_id" => Auth::User()->id,
+            "user_name" => Auth::User()->name,
+            "description" => $request->description,
+            "image" => $fileName, // Save the image name in the database
         ]);
-        $destinationPath='assests/images/';
-        $myImage=$request->image->getClientOriginalName();
-        $request->image->move(public_path($destinationPath),$myImage);
-
-       return redirect('/posts/create-post')->with('success','Post added successfully' );
-
-
-
+        
+        // Redirect back with a success message
+        return redirect('/posts/create-post')->with('success', 'Post added successfully');
     }
+
+    // If no file is uploaded or invalid, return with an error message
+    return redirect()->back()->with('error', 'File upload failed.');
+}
 
     }
 

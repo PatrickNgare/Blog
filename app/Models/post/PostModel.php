@@ -22,4 +22,6 @@ class PostModel extends Model
     "created_at"
 
     ];
+    public $timestamps = false;
+
 }
