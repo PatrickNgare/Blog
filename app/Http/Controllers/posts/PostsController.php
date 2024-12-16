@@ -97,6 +97,10 @@ class PostsController extends Controller
        return redirect('/posts/single/'.$request->post_id.'')->with('success','Comment added successfully' );
     }
 
+    public function CreatePost(){
+
+        return view("posts.create-post");
+    }
 
     }
 
