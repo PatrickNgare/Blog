@@ -117,13 +117,13 @@ class PostsController extends Controller
     if ($request->hasFile('image') && $request->file('image')->isValid()) {
         // Define the destination path for saving the image
         $destinationPath = 'assets/images/';
-        
+
         // Get the original file name of the image
         $fileName = $request->image->getClientOriginalName();
-        
+
         // Move the file to the destination folder
         $request->image->move(public_path($destinationPath), $fileName);
-        
+
         // Create a new post in the database
         $insertPost = PostModel::create([
             "title" => $request->title,
@@ -133,7 +133,7 @@ class PostsController extends Controller
             "description" => $request->description,
             "image" => $fileName, // Save the image name in the database
         ]);
-        
+
         // Redirect back with a success message
         return redirect('/posts/create-post')->with('success', 'Post added successfully');
     }
@@ -150,6 +150,14 @@ class PostsController extends Controller
           $deletePost->delete();
           return redirect('/posts/index')->with('delete', 'Post Deleted successfully');
 
+            }
+
+            public function editPost($id){
+
+                $single=PostModel::find($id);
+                $categories = Category::select('name')->distinct()->get();
+
+                return view("posts.edit-post",compact('single','categories'));
             }
     }
 

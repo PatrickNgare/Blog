@@ -41,7 +41,11 @@
           <a class="btn btn-danger" href="{{ route('posts.delete',$single->id)}}" role="button">Delete</a>
             @endif
           @endauth
-          
+          @auth
+          @if(Auth::user()->id ==$single->user_id)
+          <a class="text-white btn btn-warning" href="{{ route('posts.edit',$single->id)}}" role="button">Update</a>
+            @endif
+          @endauth
             @if(\Session::has("success"))
 
           <div class="alert alert-sucess">
@@ -50,8 +54,8 @@
             @endif
           <div class="pt-5 comment-wrap">
 
-            <h3 class="mb-5 heading">{{ $commentNum }} Comments 
-                </h3> 
+            <h3 class="mb-5 heading">{{ $commentNum }} Comments
+                </h3>
 
 
             <ul class="comment-list">
