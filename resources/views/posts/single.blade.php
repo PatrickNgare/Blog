@@ -35,9 +35,11 @@
           <div class="pt-5">
             <p>Categories:  <a href="#">{{$single->category}}</a></a></p>
           </div>
+
           @auth
+          @if(Auth::user()->id ==$single->user_id)
           <a class="btn btn-danger" href="{{ route('posts.delete',$single->id)}}" role="button">Delete</a>
-            
+            @endif
           @endauth
           
             @if(\Session::has("success"))
