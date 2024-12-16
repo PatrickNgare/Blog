@@ -36,7 +36,12 @@
             <p>Categories:  <a href="#">{{$single->category}}</a></a></p>
           </div>
 
-
+          @auth
+          @if(Auth::user()->id ==$single->user_id)
+          <a class="btn btn-danger" href="{{ route('posts.delete',$single->id)}}" role="button">Delete</a>
+            @endif
+          @endauth
+          
             @if(\Session::has("success"))
 
           <div class="alert alert-sucess">
@@ -45,7 +50,8 @@
             @endif
           <div class="pt-5 comment-wrap">
 
-            <h3 class="mb-5 heading">{{ $commentNum }}</h3>
+            <h3 class="mb-5 heading">{{ $commentNum }} Comments 
+                </h3> 
 
 
             <ul class="comment-list">
