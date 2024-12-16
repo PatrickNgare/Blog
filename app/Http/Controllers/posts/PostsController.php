@@ -100,7 +100,7 @@ class PostsController extends Controller
     public function CreatePost(){
 
         $categories = Category::select('name')->distinct()->get();
-        
+
         return view("posts.create-post",compact('categories'));
     }
 
@@ -142,5 +142,13 @@ class PostsController extends Controller
     return redirect()->back()->with('error', 'File upload failed.');
 }
 
+
+
+     public function deletePost($id){
+
+          
+      
+
+            }
     }
 
