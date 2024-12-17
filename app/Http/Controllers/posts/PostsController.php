@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use PHPUnit\TextUI\XmlConfiguration\UpdateSchemaLocation;
 
+
 class PostsController extends Controller
 {
     public function index(){
@@ -157,9 +158,22 @@ class PostsController extends Controller
 
                 $single=PostModel::find($id);
                 $categories = Category::select('name')->distinct()->get();
+                if(auth()->user()){
 
-                return view("posts.edit-post",compact('single','categories'));
+                    if(Auth::user()->id== $single->user_id){
+
+
+                        return view("posts.edit-post",compact('single','categories'));
+
+                    }else{
+                        return abort(404);
+                    }
+                }
+
+
             }
+
+
 
             public function updatePost(Request $request, $id){
 
