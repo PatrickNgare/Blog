@@ -16,7 +16,7 @@
             <div class="text-center post-meta align-items-center">
               {{-- <figure class="mb-0 author-figure me-3 d-inline-block"><img src="images/person_1.jpg" alt="Image" class="img-fluid"></figure> --}}
               <span class="mt-1 d-inline-block">By &nbsp;{{ $single->user_name}}</span>
-              <span>&nbsp;-&nbsp; {{ $single->created_at}}</span>
+              <span>&nbsp;-&nbsp; {{ \Carbon\Carbon::parse($single->created_at)->format('M d,Y') }}</span>
             </div>
           </div>
         </div>
@@ -72,7 +72,7 @@
                         </div> --}}
                         <div class="comment-body">
                           <h3>{{$comment->user_name}}</h3>
-                          <div class="meta">{{ $comment->created_at }}</div>
+                          <div class="meta">{{\Carbon\Carbon::parse($comment->created_at)->format('M d,Y')  }}</div>
                           <p>{{ $comment->comment  }}</p>
                           {{-- <p><a href="#" class="rounded reply">Reply</a></p> --}}
                         </div>
@@ -191,7 +191,7 @@
               <a href="single.html" class="img-link">
                 <img src="{{ asset('assets/images/'. $post->image .'')  }}" alt="Image" class="img-fluid">
               </a>
-              <span class="date">{{  $post->created_at }}</span>
+              <span class="date"> {{\Carbon\Carbon::parse($post->created_at)->format('M d,Y')   }}</span>
               <h2><a href="{{route('posts.single',$post->id)}}">{{substr($post->title,0,40)}}</a></h2>
               <p>{{ substr($post->description,0,40) }}</p>
               <p><a href="{{route('posts.single',$post->id)}}" class="read-more">Continue Reading</a></p>
