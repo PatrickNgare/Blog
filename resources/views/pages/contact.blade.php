@@ -2,7 +2,7 @@
 
 @section('content')
 
-<div class="py-5 hero overlay inner-page bg-primary">
+<div style="margin-top: -25px" class="py-5 hero overlay inner-page bg-primary">
     <div class="container">
         <div class="pt-5 text-center row align-items-center justify-content-center">
             <div class="col-lg-6">
