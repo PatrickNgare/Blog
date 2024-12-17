@@ -103,7 +103,14 @@ class PostsController extends Controller
 
         $categories = Category::select('name')->distinct()->get();
 
-        return view("posts.create-post",compact('categories'));
+        if(auth()->user()){
+            return view("posts.create-post",compact('categories'));
+        }else{
+
+            return abort('404');
+        }
+
+
     }
 
  public function storePost(Request $request){

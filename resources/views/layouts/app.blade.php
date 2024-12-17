@@ -8,7 +8,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>{{ config('app.name', 'Laravel') }}</title>
-    
+
        <!-- importing our files -->
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -65,7 +65,12 @@
                             <li><a href="category.html">Culture</a></li>
                             <li><a href="category.html">Business</a></li>
                             <li><a href="category.html">Politics</a></li>
+                            @auth
+                            
                             <li><a href="{{route('posts.create') }}">Create Post</a></li>
+
+                            @endauth
+
                             <li><a href="contact.html">Contact Us</a></li>
                             <li><a href="about.html">About Us</a></li>
 
