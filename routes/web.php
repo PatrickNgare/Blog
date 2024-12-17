@@ -24,4 +24,4 @@ Route::get('/posts/post-delete/{id}', [App\Http\Controllers\posts\PostsControlle
 Route::get('/posts/post-edit/{id}', [App\Http\Controllers\posts\PostsController::class, 'editPost'])->name('posts.edit');
 
 //update post
-Route::post('/posts/post-update/{id}', [App\Http\Controllers\posts\PostsController::class, 'updatePost'])->name('posts.update');
+Route::post('/posts/post-update/{id}', [App\Http\Controllers\posts\PostsController::class, 'updatePost'])->name('posts.update')->middleware('auth');
