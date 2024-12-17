@@ -48,7 +48,7 @@
           @endauth
           @auth
           @if(Auth::user()->id ==$single->user_id)
-          <a class="text-white btn btn-warning" href="{{ route('posts.edit',$single->id)}}" role="button">Update</a>
+          <a style="float: right" class="text-white btn btn-warning" href="{{ route('posts.edit',$single->id)}}" role="button">Update</a>
             @endif
           @endauth
             @if(\Session::has("success"))

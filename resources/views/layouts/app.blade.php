@@ -8,7 +8,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>{{ config('app.name', 'Laravel') }}</title>
-
+    
        <!-- importing our files -->
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -48,18 +48,18 @@
             <div class="site-navigation">
                 <div class="row g-0 align-items-center">
                     <div class="col-2">
-                        <a href="{{ url('/') }}" class="logo m-0 float-start">Blogy<span class="text-primary">.</span></a>
+                        <a href="{{ url('/') }}" class="m-0 logo float-start">Blogy<span class="text-primary"></span></a>
                     </div>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                         <span class="navbar-toggler-icon"></span>
                     </button>
-                    <div class="col-8 text-center">
+                    <div class="text-center col-8">
                         <form action="#" class="search-form d-inline-block d-lg-none">
                             <input type="text" class="form-control" placeholder="Search...">
                             <span class="bi-search"></span>
                         </form>
 
-                        <ul class="js-clone-nav d-none d-lg-inline-block text-start site-menu mx-auto">
+                        <ul class="mx-auto js-clone-nav d-none d-lg-inline-block text-start site-menu">
                             <li class="active"><a href="{{ route('home') }}">Home</a></li>
 
                             <li><a href="category.html">Culture</a></li>
@@ -165,7 +165,7 @@
 							<ul>
 								<li>
 									<a href="">
-										<img src="images/img_1_sq.jpg" alt="Image placeholder" class="me-4 rounded">
+										<img src="images/img_1_sq.jpg" alt="Image placeholder" class="rounded me-4">
 										<div class="text">
 											<h4>There’s a Cool New Way for Men to Wear Socks and Sandals</h4>
 											<div class="post-meta">
@@ -176,7 +176,7 @@
 								</li>
 								<li>
 									<a href="">
-										<img src="images/img_2_sq.jpg" alt="Image placeholder" class="me-4 rounded">
+										<img src="images/img_2_sq.jpg" alt="Image placeholder" class="rounded me-4">
 										<div class="text">
 											<h4>There’s a Cool New Way for Men to Wear Socks and Sandals</h4>
 											<div class="post-meta">
@@ -187,7 +187,7 @@
 								</li>
 								<li>
 									<a href="">
-										<img src="images/img_3_sq.jpg" alt="Image placeholder" class="me-4 rounded">
+										<img src="images/img_3_sq.jpg" alt="Image placeholder" class="rounded me-4">
 										<div class="text">
 											<h4>There’s a Cool New Way for Men to Wear Socks and Sandals</h4>
 											<div class="post-meta">
@@ -204,8 +204,8 @@
 				</div> <!-- /.col-lg-4 -->
 			</div> <!-- /.row -->
 
-			<div class="row mt-5">
-				<div class="col-12 text-center">
+			<div class="mt-5 row">
+				<div class="text-center col-12">
 
 
             <p>Copyright &copy;<script>document.write(new Date().getFullYear());</script>. All Rights Reserved. Patel; Designed with love by <a href="#">Patel_inc</a>  Distributed by <a href="#">Patel_inc</a>
