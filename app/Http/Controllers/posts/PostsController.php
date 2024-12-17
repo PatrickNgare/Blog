@@ -199,6 +199,9 @@ class PostsController extends Controller
         return view('pages.contact');
     }
 
+    public function about(){
 
+        return view('pages.about');
+    }
     }
 
