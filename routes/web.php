@@ -25,3 +25,6 @@ Route::get('/posts/post-edit/{id}', [App\Http\Controllers\posts\PostsController:
 
 //update post
 Route::post('/posts/post-update/{id}', [App\Http\Controllers\posts\PostsController::class, 'updatePost'])->name('posts.update')->middleware('auth');
+
+Route::get('/contact', [App\Http\Controllers\posts\PostsController::class, 'contact'])->name('contact');
+
