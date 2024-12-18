@@ -30,3 +30,4 @@ Route::post('/posts/post-update/{id}', [App\Http\Controllers\posts\PostsControll
 Route::get('/contact', [App\Http\Controllers\posts\PostsController::class, 'contact'])->name('contact');
 Route::get('/about', [App\Http\Controllers\posts\PostsController::class, 'about'])->name('about');
 
+Route::get('/posts/category/{category}', [App\Http\Controllers\categories\CategoriesController::class, 'category'])->name('category.single');
