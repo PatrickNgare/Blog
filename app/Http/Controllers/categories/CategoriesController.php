@@ -13,9 +13,9 @@ class CategoriesController extends Controller
 
    public function category($name){
 
-  $post=PostModel::where('category',$name)->take(5)->orderBy('created_at', 'desc')->get();
+  $posts=PostModel::where('category',$name)->take(5)->orderBy('created_at', 'desc')->get();
 
-  return view('categories.category',compact('post'));
+  return view('categories.category',compact('posts'));
    }
 
 }
