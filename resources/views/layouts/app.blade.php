@@ -62,10 +62,10 @@
                         <ul class="mx-auto js-clone-nav d-none d-lg-inline-block text-start site-menu">
                             <li class="active"><a href="{{ route('home') }}">Home</a></li>
 
-                            <li><a href="category.html">Culture</a></li>
-                            <li><a href="category.html">Business</a></li>
+                            <li><a href="{{ route('category.single', 'Culture') }}">Culture</a></li>
+                            <li><a href="{{ route('category.single', 'Business') }}">Business</a></li>
+                            <li><a href="{{ route('category.single', 'Politics') }}">Politics</a></li>
                             <li><a href="{{ route('about') }}">About Us</a></li>
-                            <li><a href="category.html">Politics</a></li>
                             @auth
 
                             <li><a href="{{route('posts.create') }}">Create Post</a></li>
