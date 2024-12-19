@@ -31,3 +31,6 @@ Route::get('/contact', [App\Http\Controllers\posts\PostsController::class, 'cont
 Route::get('/about', [App\Http\Controllers\posts\PostsController::class, 'about'])->name('about');
 
 Route::get('/posts/category/{name}', [App\Http\Controllers\categories\CategoriesController::class, 'category'])->name('category.single');
+
+//update profile
+Route::get('/users/category/{name}', [App\Http\Controllers\categories\CategoriesController::class, 'category'])->name('category.single');
