@@ -95,7 +95,7 @@
 
 
         <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="{{ route('users.update',Auth::user()->id)  }}">
+            <a class="dropdown-item" href="{{ route('users.edit',Auth::user()->id)  }}">
                 Update Profile
             </a>
             <a class="dropdown-item" href="{{ route('logout') }}"

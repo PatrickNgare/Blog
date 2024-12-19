@@ -7,7 +7,7 @@
 
     <div class="pt-5 comment-form-wrap">
         <h3 class="mb-5">Update Profile Info </h3>
-        <form action="{{ route('posts.update',$user->id)  }}" method ="POST" class="p-5 bg-light" enctype="multipart/form-data">
+        <form action="{{ route('users.update',$user->id)  }}" method ="POST" class="p-5 bg-light" enctype="multipart/form-data">
 
           @csrf
           <div class="form-group">
