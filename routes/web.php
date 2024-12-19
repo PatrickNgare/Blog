@@ -33,4 +33,4 @@ Route::get('/about', [App\Http\Controllers\posts\PostsController::class, 'about'
 Route::get('/posts/category/{name}', [App\Http\Controllers\categories\CategoriesController::class, 'category'])->name('category.single');
 
 //update profile
-Route::get('/users/category/{name}', [App\Http\Controllers\categories\CategoriesController::class, 'category'])->name('category.single');
+Route::get('/users/update/{id}', [App\Http\Controllers\users\UsersController::class, 'updateProfile'])->name('users.update');

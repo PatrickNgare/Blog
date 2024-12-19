@@ -89,7 +89,7 @@
             {{ Auth::user()->name }}
         </a>
 
-        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="{{ route('users.update',Auth::user()->id  }}" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="{{ route('users.update',Auth::user()->id)  }}" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
             Update Profile
         </a>
 
