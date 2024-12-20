@@ -43,5 +43,7 @@ public function updateProfile(Request $request, $id)
     return redirect('/posts/index')->with('update.user', 'Profile updated successfully.');
 }
 
+
+
 }
 
