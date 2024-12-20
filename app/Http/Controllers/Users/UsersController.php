@@ -5,23 +5,43 @@ use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 
 class UsersController extends Controller
 {
     public function editProfile($id){
         $user = User::find($id);
-        return view('users.update-profile', compact('user'));
-    }
 
-    public function updateProfile(Request $request, $id){
-
-        $updateProfile=User::find($id);
-
-        $updateProfile->update($request->all());
-
-        if($updateProfile){
-            return redirect('/users/update/'. $updateProfile->id.'')->with('update', 'Post Updated successfully');
+        if (auth()->user()){
+            if (Auth::user()->id==$user->id){
+                return view('users.update-profile', compact('user'));
+            }else{
+                return abort('404');
+            }
+        }else {
+            return abort('404');
         }
 
+
+    }
+public function updateProfile(Request $request, $id)
+{
+    $request->validate([
+        'email' => 'required|email',
+        'bio'   => 'nullable|string',
+        'name'  => 'required|string|max:255',
+    ]);
+
+    $user = User::find($id);
+
+    if (!$user) {
+        return redirect()->back()->with('error', 'User not found.');
+    }
+
+    $user->update($request->only(['email', 'bio', 'name']));
+
+    return redirect('/posts/index')->with('update.user', 'Profile updated successfully.');
 }
+
 }
+

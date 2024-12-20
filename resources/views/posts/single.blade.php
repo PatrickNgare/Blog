@@ -2,14 +2,17 @@
 
 @section('content')
 
-<div class="site-cover site-cover-sm same-height overlay single-page" style="background-image: url({{asset('assets/images/'.$single->image .'')   }});">
+<div class="site-cover site-cover-sm same-height overlay single-page" style="background-image: url({{ asset('assets/images/' . $single->image) }});">
+
     <div class="container">
+
       <div class="row same-height justify-content-center">
         @if(\Session::has("update"))
-                <div class="alert alert-sucess">
-                  <p>  {!! \Session::get('update')!!}   </p>
-                </div>
-                  @endif
+    <div class="alert alert-success">
+        <p>{!! is_array(\Session::get('update')) ? implode(', ', \Session::get('update')) : \Session::get('update') !!}</p>
+    </div>
+@endif
+
         <div class="col-md-6">
           <div class="text-center post-entry">
             <h1 class="mb-4">{{ $single->title}}</h1>
