@@ -43,7 +43,14 @@ public function updateProfile(Request $request, $id)
     return redirect('/posts/index')->with('update.user', 'Profile updated successfully.');
 }
 
+public function profile($id){
 
+    $profile=User::find($id);
+
+
+    return view('users.profile',compact('profile'));
+
+}
 
 }
 
