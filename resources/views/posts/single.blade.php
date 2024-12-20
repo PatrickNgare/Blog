@@ -2,16 +2,28 @@
 
 @section('content')
 
+<<<<<<< HEAD
 <div class="site-cover site-cover-sm same-height overlay single-page" style= "margin-top: -25px; background-image: url({{asset('assets/images/'.$single->image .'')   }});">
+=======
+<div class="site-cover site-cover-sm same-height overlay single-page" style="background-image: url({{ asset('assets/images/' . $single->image) }});">
+
+>>>>>>> dev
     <div class="container">
+
       <div class="row same-height justify-content-center">
+        @if(\Session::has("update"))
+    <div class="alert alert-success">
+        <p>{!! is_array(\Session::get('update')) ? implode(', ', \Session::get('update')) : \Session::get('update') !!}</p>
+    </div>
+@endif
+
         <div class="col-md-6">
           <div class="text-center post-entry">
             <h1 class="mb-4">{{ $single->title}}</h1>
             <div class="text-center post-meta align-items-center">
               {{-- <figure class="mb-0 author-figure me-3 d-inline-block"><img src="images/person_1.jpg" alt="Image" class="img-fluid"></figure> --}}
               <span class="mt-1 d-inline-block">By &nbsp;{{ $single->user_name}}</span>
-              <span>&nbsp;-&nbsp; {{ $single->created_at}}</span>
+              <span>&nbsp;-&nbsp; {{ \Carbon\Carbon::parse($single->created_at)->format('M d,Y') }}</span>
             </div>
           </div>
         </div>
@@ -41,7 +53,11 @@
           <a class="btn btn-danger" href="{{ route('posts.delete',$single->id)}}" role="button">Delete</a>
             @endif
           @endauth
-          
+          @auth
+          @if(Auth::user()->id ==$single->user_id)
+          <a style="float: right" class="text-white btn btn-warning" href="{{ route('posts.edit',$single->id)}}" role="button">Update</a>
+            @endif
+          @endauth
             @if(\Session::has("success"))
 
           <div class="alert alert-sucess">
@@ -50,8 +66,8 @@
             @endif
           <div class="pt-5 comment-wrap">
 
-            <h3 class="mb-5 heading">{{ $commentNum }} Comments 
-                </h3> 
+            <h3 class="mb-5 heading">{{ $commentNum }} Comments
+                </h3>
 
 
             <ul class="comment-list">
@@ -63,7 +79,7 @@
                         </div> --}}
                         <div class="comment-body">
                           <h3>{{$comment->user_name}}</h3>
-                          <div class="meta">{{ $comment->created_at }}</div>
+                          <div class="meta">{{\Carbon\Carbon::parse($comment->created_at)->format('M d,Y')  }}</div>
                           <p>{{ $comment->comment  }}</p>
                           {{-- <p><a href="#" class="rounded reply">Reply</a></p> --}}
                         </div>
@@ -182,7 +198,7 @@
               <a href="single.html" class="img-link">
                 <img src="{{ asset('assets/images/'. $post->image .'')  }}" alt="Image" class="img-fluid">
               </a>
-              <span class="date">{{  $post->created_at }}</span>
+              <span class="date"> {{\Carbon\Carbon::parse($post->created_at)->format('M d,Y')   }}</span>
               <h2><a href="{{route('posts.single',$post->id)}}">{{substr($post->title,0,40)}}</a></h2>
               <p>{{ substr($post->description,0,40) }}</p>
               <p><a href="{{route('posts.single',$post->id)}}" class="read-more">Continue Reading</a></p>

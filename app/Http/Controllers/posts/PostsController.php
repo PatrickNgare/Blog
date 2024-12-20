@@ -10,6 +10,8 @@ use App\Models\post\Category;
 use App\Models\User;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
+use PHPUnit\TextUI\XmlConfiguration\UpdateSchemaLocation;
+
 
 class PostsController extends Controller
 {
@@ -110,7 +112,14 @@ class PostsController extends Controller
 
         $categories = Category::select('name')->distinct()->get();
 
-        return view("posts.create-post",compact('categories'));
+        if(auth()->user()){
+            return view("posts.create-post",compact('categories'));
+        }else{
+
+            return abort('404');
+        }
+
+
     }
 
  public function storePost(Request $request){
@@ -126,13 +135,13 @@ class PostsController extends Controller
     if ($request->hasFile('image') && $request->file('image')->isValid()) {
         // Define the destination path for saving the image
         $destinationPath = 'assets/images/';
-        
+
         // Get the original file name of the image
         $fileName = $request->image->getClientOriginalName();
-        
+
         // Move the file to the destination folder
         $request->image->move(public_path($destinationPath), $fileName);
-        
+
         // Create a new post in the database
         $insertPost = PostModel::create([
             "title" => $request->title,
@@ -142,7 +151,7 @@ class PostsController extends Controller
             "description" => $request->description,
             "image" => $fileName, // Save the image name in the database
         ]);
-        
+
         // Redirect back with a success message
         return redirect('/posts/create-post')->with('success', 'Post added successfully');
     }
@@ -160,5 +169,48 @@ class PostsController extends Controller
           return redirect('/posts/index')->with('delete', 'Post Deleted successfully');
 
             }
+
+            public function editPost($id){
+
+                $single=PostModel::find($id);
+                $categories = Category::select('name')->distinct()->get();
+                if(auth()->user()){
+
+                    if(Auth::user()->id== $single->user_id){
+
+
+                        return view("posts.edit-post",compact('single','categories'));
+
+                    }else{
+                        return abort(404);
+                    }
+                }
+
+
+            }
+
+
+
+            public function updatePost(Request $request, $id){
+
+                $updatePost=PostModel::find($id);
+
+                $updatePost->update($request->all());
+
+                if($updatePost){
+                    return redirect('/posts/single/'. $updatePost->id.'')->with('update', 'Post Updated successfully');
+                }
+
+            }
+
+    public function contact(){
+
+        return view('pages.contact');
+    }
+
+    public function about(){
+
+        return view('pages.about');
+    }
     }
 
