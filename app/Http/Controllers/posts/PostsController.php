@@ -68,10 +68,10 @@ class PostsController extends Controller
 
 
               //print_r($categories);
-<<<<<<< HEAD
+
             //another commet
             return view('posts.single',compact('single','user','postPopular','categories'));
-=======
+
 
             //another comment
 
@@ -83,12 +83,9 @@ class PostsController extends Controller
             ->get();
 
 
-<<<<<<< HEAD
-            return view('posts.single',compact('single','user','postPopular','categories','comments'));
->>>>>>> dev
-=======
+
             return view('posts.single',compact('single','user','postPopular','categories','comments','moreBlogs','commentNum'));
->>>>>>> dev
+
 
         }
 
