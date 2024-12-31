@@ -14,6 +14,11 @@
             <label for="title">Title</label>
             <input type="text" placeholder="title" name="title" value="{{ $single->title }}" class="form-control" id="name">
           </div>
+          @error('tittle')
+                        <span class="text-danger" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
 
            <div class="form-group">
 
@@ -27,11 +32,20 @@
 
               </select>
            </div>
-
+           @error('category')
+           <span class="text-danger" role="alert">
+               <strong>{{ $message }}</strong>
+           </span>
+       @enderror
           <div class="form-group">
             <label for="message">Description</label>
             <textarea  placeholder="Description" name="description"  cols="30" rows="10" class="form-control">{{ $single->description }}</textarea>
           </div>
+          @error('description')
+          <span class="text-danger" role="alert">
+              <strong>{{ $message }}</strong>
+          </span>
+      @enderror
           <div class="form-group">
             <input type="submit" name="submit" value="Update Post" class="btn btn-primary">
           </div>

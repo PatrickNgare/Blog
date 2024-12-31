@@ -188,6 +188,12 @@ class PostsController extends Controller
 
                 $updatePost->update($request->all());
 
+                Request()->validate([
+                    'title' => 'required|string',
+                    'category' => 'required|string',
+                    'description' => 'required|string|max:1000',
+                ]);
+
                 if($updatePost){
                     return redirect('/posts/single/'. $updatePost->id.'')->with('update', 'Post Updated successfully');
                 }
