@@ -27,9 +27,9 @@ class UsersController extends Controller
 public function updateProfile(Request $request, $id)
 {
     $request->validate([
-        'email' => 'required|email',
-        'bio'   => 'nullable|string',
-        'name'  => 'required|string|max:255',
+        'email' => 'required|email|max:25',
+        'bio'   => 'required|max:300',
+        'name'  => 'required|string|max:25',
     ]);
 
     $user = User::find($id);
