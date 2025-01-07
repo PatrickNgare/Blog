@@ -27,6 +27,10 @@ Route::get('/posts/post-edit/{id}', [App\Http\Controllers\posts\PostsController:
 //update post
 Route::post('/posts/post-update/{id}', [App\Http\Controllers\posts\PostsController::class, 'updatePost'])->name('posts.update')->middleware('auth');
 
+//search post
+
+Route::any('/posts/search', [App\Http\Controllers\posts\PostsController::class, 'search'])->name('posts.search');
+
 Route::get('/contact', [App\Http\Controllers\posts\PostsController::class, 'contact'])->name('contact');
 Route::get('/about', [App\Http\Controllers\posts\PostsController::class, 'about'])->name('about');
 
