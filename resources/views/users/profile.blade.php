@@ -2,7 +2,7 @@
 
 @section('content')
 
-<div class="site-cover site-cover-sm same-height overlay single-page" style="background-image: url({{ asset('assets/images/' . $single->image) }});">
+<div class="site-cover site-cover-sm same-height overlay single-page" style="background-image: url('{{ asset('assets/images/hero_3.jpg') }}');">
 
     <div class="container">
 

@@ -35,3 +35,4 @@ Route::get('/posts/category/{name}', [App\Http\Controllers\categories\Categories
 //update profile
 Route::get('/users/edit/{id}', [App\Http\Controllers\users\UsersController::class, 'editProfile'])->name('users.edit');
 Route::put('/users/update/{id}', [App\Http\Controllers\Users\UsersController::class, 'updateProfile'])->name('update.user');
+Route::get('/users/profile{id}', [App\Http\Controllers\users\UsersController::class, 'profile'])->name('users.profile');

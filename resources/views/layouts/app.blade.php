@@ -89,14 +89,9 @@
             {{ Auth::user()->name }}
 
         </a>
-
-
-
-
-
         <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="{{ route('users.edit',Auth::user()->id)  }}">
-                Update Profile
+            <a class="dropdown-item" href="{{ route('users.profile',Auth::user()->id)  }}">
+                Public  Profile
             </a>
             <a class="dropdown-item" href="{{ route('users.edit',Auth::user()->id)  }}">
                 Update Profile
