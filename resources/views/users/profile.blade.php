@@ -41,12 +41,12 @@
 
         <!-- END main-content -->
 
-        {{-- <div class="col-md-12 col-lg-4 sidebar">
+         <div class="col-md-12 col-lg-4 sidebar">
           <div syle="padding :10px" class="sidebar-box">
-            <h3 class="heading">Popular Posts</h3>
+            <h3 class="heading">latest Posts By This Author</h3>
             <div class="post-entry-sidebar">
               <ul>
-                @foreach ($postPopular as $post )
+                @foreach ($latestPost as $post )
                 <li>
 
 
@@ -67,7 +67,7 @@
             </div>
           </div>
 
-        </div> --}}
+        </div> 
         <!-- END sidebar -->
 
       </div>
