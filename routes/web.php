@@ -42,3 +42,4 @@ Route::put('/users/update/{id}', [App\Http\Controllers\Users\UsersController::cl
 Route::get('/users/profile{id}', [App\Http\Controllers\users\UsersController::class, 'profile'])->name('users.profile');
 
 Route::get('admin/login', [App\Http\Controllers\Admins\AdminsController::class, 'viewlogin'])->name('admin.login');
+Route::post('admin/login', [App\Http\Controllers\Admins\AdminsController::class, 'viewlogin'])->name('admin.login');
