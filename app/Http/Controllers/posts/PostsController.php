@@ -209,5 +209,14 @@ class PostsController extends Controller
 
         return view('pages.about');
     }
+
+    public function search(Request $request){
+
+        $search = $request->search;
+
+        $posts = PostModel::select()->where('title','LIKE',"%$search%")->get();
+
+        return view('posts.search',compact('posts'));
     }
 
+}
