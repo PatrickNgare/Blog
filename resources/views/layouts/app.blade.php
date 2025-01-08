@@ -105,7 +105,7 @@
                 @csrf
             </form>
         </div>
-    </li>
+    </li>2
 @endguest
       </ul>
                     </div>

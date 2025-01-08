@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Models\post\PostModel;
 use App\Http\Controllers\categories\CategoriesController;
+use App\Http\Controllers\admins\AdminsController;
 // Root route
 /* Route::get('/', function () {
     return view('home'); // Serve the home view for the root URL
@@ -43,4 +44,12 @@ Route::get('/users/profile{id}', [App\Http\Controllers\users\UsersController::cl
 
 Route::get('admin/login', [App\Http\Controllers\Admins\AdminsController::class, 'viewlogin'])->name('admin.login');
 Route::post('admin/login', [App\Http\Controllers\Admins\AdminsController::class, 'checklogin'])->name('admin.check.login');
-Route::get('admin', [App\Http\Controllers\Admins\AdminsController::class, 'index'])->name('admins.dashboard');
+
+Route::group([ 'prefix'=>'admin' ,'middleware' => ['auth:admin']], function () {
+    Route::get('/', [App\Http\Controllers\Admins\AdminsController::class, 'index'])->name('admins.dashboard');
+
+});
+
+
+
+
