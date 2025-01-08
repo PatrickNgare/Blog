@@ -1,4 +1,4 @@
-@extends('admins')
+@extends('layouts.admin')
 
 @section('content')
 
@@ -11,30 +11,22 @@
           <table class="table">
             <thead>
               <tr>
-                <th scope="col">#</th>
-                <th scope="col">username</th>
-                <th scope="col">email</th>
+                <th scope="col">No.</th>
+                <th scope="col">Admin Name</th>
+                <th scope="col">Email</th>
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Otto</td>
-               
-              </tr>
-              <tr>
-                <th scope="row">2</th>
-                <td>Jacob</td>
-                <td>Thornton</td>
-               
-              </tr>
-              <tr>
-                <th scope="row">3</th>
-                <td>Larry</td>
-                <td>the Bird</td>
-               
-              </tr>
+                @foreach ( $admins as $admin )
+                <tr>
+                    <th scope="row">{{ $admin->id  }}</th>
+                    <td>{{ $admin->name }}</td>
+                    <td>{{$admin->email }}</td>
+                   
+                  </tr> 
+                @endforeach
+              
+              
             </tbody>
           </table> 
         </div>

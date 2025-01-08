@@ -26,12 +26,12 @@
 
        <ul class="navbar-nav side-nav" >
         <li class="nav-item">
-          <a class="text-white nav-link" style="margin-left: 20px;" href="index.html">Home
+          <a class="text-white nav-link" style="margin-left: 20px;" href="{{ route('admins.dashboard') }}">Home
             <span class="sr-only">(current)</span>
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="admins/admins.html" style="margin-left: 20px;">Admins</a>
+          <a class="nav-link" href="{{ route('admins.show') }}" style="margin-left: 20px;">Admins</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="categories-admins/show-categories.html" style="margin-left: 20px;">Categories</a>
@@ -50,7 +50,7 @@
 
             @auth('admin')
             <li class="nav-item">
-                <a class="nav-link" href="index.html">Home
+                <a class="nav-link" href="{{ route('admins.dashboard') }}">Home
                     <span class="sr-only">(current)</span>
                 </a>
             </li>
@@ -68,7 +68,7 @@
             </li>
         @else
             <li class="nav-item">
-                <a class="nav-link" href="admins/login-admins.html">Login
+                <a class="nav-link" href="{{ route('admins.login') }}">Login
                     <span class="sr-only">(current)</span>
                 </a>
             </li>

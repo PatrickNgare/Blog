@@ -53,6 +53,12 @@ class AdminsController extends Controller
         return view('admins.index',compact('postCount','countcategories','adminsCount'));
     }
 
+   //admins sections
+    public function admins(){
+        $admins = Admin::all();
+        return view('admins.admins',compact('admins'));
+    }
+
 
 }
 

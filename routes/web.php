@@ -50,6 +50,8 @@ Route::group([ 'prefix'=>'admin' ,'middleware' => ['auth:admin']], function () {
 
 });
 
+Route::get('admin/show-admins', [App\Http\Controllers\Admins\AdminsController::class, 'admins'])->name('admins.show');
+
 
 
 
