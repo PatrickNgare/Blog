@@ -20,7 +20,7 @@ class AdminsController extends Controller
         // Validate the form input
         $request->validate([
             'email' => 'required|email',
-            'password' => 'required|min:6',  // Adjust password rule as per your requirement
+            'password' => 'required|min:5',  // Adjust password rule as per your requirement
         ]);
 
         // Attempt to authenticate with the 'admin' guard
