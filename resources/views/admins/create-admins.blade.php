@@ -8,8 +8,8 @@
       <div class="card">
         <div class="card-body">
           <h5 class="mb-5 card-title d-inline">Create Admins</h5>
-      <form method="POST" action="" enctype="multipart/form-data">
-            <!-- Email input -->
+      <form method="POST" action="{{ route('admins.store') }}" >
+            @csrf
             <div class="mt-4 mb-4 form-outline">
               <input type="email" name="email" id="form2Example1" class="form-control" placeholder="email" />
              

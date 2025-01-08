@@ -59,7 +59,24 @@ class AdminsController extends Controller
         return view('admins.admins',compact('admins'));
     }
 
+    public function createAdmins(){
+        
 
+        return view('admins.create-admins',compact('admins'));
+    }
+
+    public function storeAdmins(){
+
+        $data = request()->validate([
+            'name' => 'required',
+            'email' => 'required|email',
+            'password' => 'required|min:6',
+        ]);
+         
+
+
+        return view('admins.create-admins');
+    }
 }
 
 

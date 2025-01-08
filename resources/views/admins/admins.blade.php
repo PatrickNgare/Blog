@@ -7,7 +7,7 @@
       <div class="card">
         <div class="card-body">
           <h5 class="mb-4 card-title d-inline">Admins</h5>
-         <a  href="create-admins.html" class="float-right mb-4 text-center btn btn-primary">Create Admins</a>
+         <a  href="{{ route('admins.create')  }}" class="float-right mb-4 text-center btn btn-primary">Create Admins</a>
           <table class="table">
             <thead>
               <tr>

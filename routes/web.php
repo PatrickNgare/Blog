@@ -51,6 +51,8 @@ Route::group([ 'prefix'=>'admin' ,'middleware' => ['auth:admin']], function () {
 });
 
 Route::get('admin/show-admins', [App\Http\Controllers\Admins\AdminsController::class, 'admins'])->name('admins.show');
+Route::get('admin/create-admins', [App\Http\Controllers\Admins\AdminsController::class, 'createAdmins'])->name('admins.create');
+Route::post('admin/create-admins', [App\Http\Controllers\Admins\AdminsController::class, 'storeAdmins'])->name('admins.store');
 
 
 
