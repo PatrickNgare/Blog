@@ -10,18 +10,22 @@ use Illuminate\Notifications\Notifiable;
 class Admin extends Authenticatable
 {
     /** @use HasFactory<\Database\Factories\UserFactory> */
-    
+
 
     /**
      * The attributes that are mass assignable.
      *
      * @var array<int, string>
+     *
      */
+
+     public $timestamps = false;
     protected $fillable = [
+
         'name',
         'email',
         'password',
-        'created_at'
+
     ];
 
     /**
@@ -31,8 +35,8 @@ class Admin extends Authenticatable
      */
     protected $hidden = [
         'password',
-        
+
     ];
 
-    
+
 }

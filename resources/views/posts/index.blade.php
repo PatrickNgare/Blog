@@ -8,13 +8,13 @@
 		<div class="container">
 			<div class="row align-items-stretch retro-layout">
                 @if(\Session::has("delete"))
-                <div class="alert alert-sucess">
+                <div class="alert alert-success">
                   <p>  {!! \Session::get('delete')!!}   </p>
                 </div>
                   @endif
 
                   @if(\Session::has("update.user"))
-                <div class="alert alert-sucess">
+                <div class="alert alert-success">
                   <p>  {!! \Session::get('update.user')!!}   </p>
                 </div>
                   @endif

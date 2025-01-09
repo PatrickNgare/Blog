@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\post\PostModel;
 use App\Models\post\Category;
 use App\Models\Admin\Admin;
+use Illuminate\Support\Facades\Hash;
 
 class AdminsController extends Controller
 {
@@ -59,24 +60,59 @@ class AdminsController extends Controller
         return view('admins.admins',compact('admins'));
     }
 
-    public function createAdmins(){
-        
+     public function createAdmins(){
 
-        return view('admins.create-admins',compact('admins'));
+
+        return view('admins.create-admins');
     }
 
-    public function storeAdmins(){
+    public function storeAdmins(Request $request){
 
         $data = request()->validate([
             'name' => 'required',
             'email' => 'required|email',
             'password' => 'required|min:6',
         ]);
-         
+          // Create a new post in the database
+        $insertAdmin = Admin::create([
+            "email" => $request->email,
+            "name" => $request->name,
+            "password" => Hash::make($request->password),
+
+        ]);
+
+        // Redirect back with a success message
+        return redirect('/admin/show-admins')->with('success', 'Admin added successfully');
 
 
         return view('admins.create-admins');
     }
+
+
+    public function categories(){
+        $categories = Category::select('name')->distinct()->get();
+        return view('admins.categories',compact('categories'));
+    }
+
+    public function createCategories(){
+
+
+        return view('admins.create-categories');
+    }
+
+    public function storeCategories(Request $request){
+
+        $data = request()->validate([
+            'name' => 'required',
+        ]);
+          // Create a new post in the database
+        $insertCategory = Category::create([
+            "name" => $request->name,
+
+        ]);
+
+        // Redirect back with a success message
+        return redirect('/admin/show-categories')->with('success', 'Category added successfully');
 }
 
 

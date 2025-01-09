@@ -34,7 +34,7 @@
           <a class="nav-link" href="{{ route('admins.show') }}" style="margin-left: 20px;">Admins</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="categories-admins/show-categories.html" style="margin-left: 20px;">Categories</a>
+          <a class="nav-link" href="{{ route('categories.show')  }}" style="margin-left: 20px;">Categories</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="posts-admins/show-posts.html" style="margin-left: 20px;">Posts</a>
@@ -68,7 +68,7 @@
             </li>
         @else
             <li class="nav-item">
-                <a class="nav-link" href="{{ route('admins.login') }}">Login
+                <a class="nav-link" href="{{ route('admin.login') }}">Login
                     <span class="sr-only">(current)</span>
                 </a>
             </li>
