@@ -9,7 +9,7 @@
 
         @if(\Session::has("success"))
 
-          <div class="alert alert-sucess">
+          <div class="alert alert-success">
             <p>  {!! \Session::get('success')!!}   </p>
           </div>
             @endif
@@ -30,8 +30,8 @@
                 @foreach($categories as $category)
                 <option value="{{ $category->name  }}">{{ $category->name  }}</option>
                 @endforeach
-                
-                
+
+
               </select>
            </div>
 

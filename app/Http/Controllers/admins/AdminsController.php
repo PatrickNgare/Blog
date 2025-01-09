@@ -43,7 +43,7 @@ class AdminsController extends Controller
         $post = PostModel::all();
         $postCount = $post->count();
 
-        $categories = Category::all();
+        $categories = Category::select('name')->distinct()->get();
         $countcategories = $categories->count();
 
         $admins = Admin::all();
@@ -112,7 +112,19 @@ class AdminsController extends Controller
         ]);
 
         // Redirect back with a success message
-        return redirect('/admin/show-categories')->with('success', 'Category added successfully');
+        return redirect('/admin/show-categories')->with('success', 'Category created successfully');
 }
 
+public function deleteCategories($id)
+{
+    // Find the category by ID or fail if not found
+    $category = Category::find($id);
 
+    // Delete the category
+    $category->delete();
+
+    // Redirect back to the categories list with a success message
+    return redirect('/admin/show-categories',compact('categories'))->with('delete', 'Category Deleted Successfully');
+}
+
+}

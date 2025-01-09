@@ -60,4 +60,10 @@ Route::get('admin/show-categories', [App\Http\Controllers\Admins\AdminsControlle
 
 //Categories creation
 Route::get('admin/create-categories', [App\Http\Controllers\Admins\AdminsController::class, 'createCategories'])->name('categories.create');
-Route::post('admin/create-categories', [App\Http\Controllers\Admins\AdminsController::class, 'storeCategories'])->name('categories.store');
+Route::post('admin/create-categorie', [App\Http\Controllers\Admins\AdminsController::class, 'storeCategories'])->name('categories.store');
+
+
+//Delete category
+
+Route::get('/admin/categories-delete/{id}', [App\Http\Controllers\Admins\AdminsController::class, 'deleteCategories'])->name('categories.delete');
+
