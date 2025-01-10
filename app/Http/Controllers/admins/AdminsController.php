@@ -90,7 +90,7 @@ class AdminsController extends Controller
 
 
     public function categories(){
-        $categories = Category::select('name')->distinct()->get();
+        $categories = Category::all();
         return view('admins.categories',compact('categories'));
     }
 
@@ -124,7 +124,29 @@ public function deleteCategories($id)
     $category->delete();
 
     // Redirect back to the categories list with a success message
-    return redirect('/admin/show-categories',compact('categories'))->with('delete', 'Category Deleted Successfully');
+    return redirect('/admin/show-categories')->with('delete', 'Category Deleted Successfully');
 }
 
+public function edit($id)
+{
+
+
+$category=Category::find($id);
+
+
+return view('admins.edit-categories',compact('category'));
+}
+
+
+public function updateCategories(Request $request, $id)
+{
+    Request()->validate([
+        'name' => 'required|max:40',
+    ]);
+
+    $updatecategory = Category::find($id);
+    $updatecategory->update($request->all());  
+
+    return redirect('/admin/show-categories')->with('update', 'Category updated successfully');
+}
 }

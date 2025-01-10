@@ -67,3 +67,6 @@ Route::post('admin/create-categorie', [App\Http\Controllers\Admins\AdminsControl
 
 Route::get('/admin/categories-delete/{id}', [App\Http\Controllers\Admins\AdminsController::class, 'deleteCategories'])->name('categories.delete');
 
+//Editting the category 
+Route::get('admin/edit-categories/{id}', [App\Http\Controllers\Admins\AdminsController::class, 'edit'])->name('categories.edit');
+Route::post('admin/update-categories/{id}', [App\Http\Controllers\Admins\AdminsController::class, 'updateCategories'])->name('categories.update');
