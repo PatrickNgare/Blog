@@ -39,7 +39,7 @@
                 <th scope="row">{{ $category->id }}</th>
                 <td>{{ $category->name }}</td>
                 <td><a  href="{{ route('categories.edit',$category->id) }}" class="btn btn-warning text-white text-center ">Edit </a></td>
-                <td><a href="{{ route('categories.delete',$category->id) }}" class="btn btn-danger  text-center ">Delete </a></td>
+                <td><a href="{{ route('categories.delete',$category->id) }}" onclick="return confirm('Do you really want to delete this category permanently! ?')"class="btn btn-danger  text-center ">Delete </a></td>
               </tr>
              @endforeach
                 

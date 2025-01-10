@@ -149,4 +149,27 @@ public function updateCategories(Request $request, $id)
 
     return redirect('/admin/show-categories')->with('update', 'Category updated successfully');
 }
+
+
+public function posts(){
+
+    $posts=PostModel::all();
+
+  return view('admins.posts',compact('posts'));
+
+}
+
+public function deletePosts($id)
+{
+    // Find the category by ID or fail if not found
+    $post = PostModel::find($id);
+
+    // Delete the category
+    $post->delete();
+
+    // Redirect back to the categories list with a success message
+    return redirect('/admin/show-posts')->with('delete', 'Post Deleted Successfully');
+}
+
+
 }

@@ -70,3 +70,9 @@ Route::get('/admin/categories-delete/{id}', [App\Http\Controllers\Admins\AdminsC
 //Editting the category 
 Route::get('admin/edit-categories/{id}', [App\Http\Controllers\Admins\AdminsController::class, 'edit'])->name('categories.edit');
 Route::post('admin/update-categories/{id}', [App\Http\Controllers\Admins\AdminsController::class, 'updateCategories'])->name('categories.update');
+
+//Display admin posts
+
+Route::get('admin/show-posts', [App\Http\Controllers\Admins\AdminsController::class, 'posts'])->name('posts.show');
+
+Route::get('admin/delete-posts/{id}', [App\Http\Controllers\Admins\AdminsController::class, 'deletePosts'])->name('posts.delete');
