@@ -13,6 +13,11 @@
                         <input type="text" value="{{ $category->name }}"  name="name" id="form2Example1" class="form-control" placeholder="name" />
                        
                       </div>
+                      @error('name')
+                      <span class="text-danger" role="alert">
+                          <strong>{{ $message }}</strong>
+                      </span>
+                  @enderror
                     
                     <button type="submit" name="submit" class="mb-4 text-center btn btn-primary">Update</button>
                 </form>
