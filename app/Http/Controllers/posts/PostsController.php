@@ -156,6 +156,9 @@ class PostsController extends Controller
      public function deletePost($id){
 
           $deletePost=PostModel::find($id);
+
+          $file_path=public_path('assets/images/'.$deletePost->image);
+          unlink($file_path);
           $deletePost->delete();
           return redirect('/posts/index')->with('delete', 'Post Deleted successfully');
 

@@ -164,6 +164,8 @@ public function deletePosts($id)
     // Find the category by ID or fail if not found
     $post = PostModel::find($id);
 
+    $file_path=public_path('assets/images/'.$post->image);
+     unlink($file_path);
     // Delete the category
     $post->delete();
 
