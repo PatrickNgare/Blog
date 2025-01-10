@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
+use App\Models\post\PostModel;
 
 class UsersController extends Controller
 {
@@ -27,9 +28,9 @@ class UsersController extends Controller
 public function updateProfile(Request $request, $id)
 {
     $request->validate([
-        'email' => 'required|email',
-        'bio'   => 'nullable|string',
-        'name'  => 'required|string|max:255',
+        'email' => 'required|email|max:25',
+        'bio'   => 'required|max:300',
+        'name'  => 'required|string|max:25',
     ]);
 
     $user = User::find($id);
@@ -46,11 +47,18 @@ public function updateProfile(Request $request, $id)
 public function profile($id){
 
     $profile=User::find($id);
+    $latestPost = PostModel::where('user_id', $id)
+    ->orderBy('created_at', 'desc')
+    ->take(4)
+    ->get();
 
 
-    return view('users.profile',compact('profile'));
+    return view('users.profile',compact('profile','latestPost'));
 
 }
+
+
+
 
 }
 

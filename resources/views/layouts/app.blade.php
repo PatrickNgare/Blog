@@ -89,12 +89,10 @@
             {{ Auth::user()->name }}
 
         </a>
-
-
-
-
-
         <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="{{ route('users.profile',Auth::user()->id)  }}">
+                Public  Profile
+            </a>
             <a class="dropdown-item" href="{{ route('users.edit',Auth::user()->id)  }}">
                 Update Profile
             </a>
@@ -107,7 +105,7 @@
                 @csrf
             </form>
         </div>
-    </li>
+    </li>2
 @endguest
       </ul>
                     </div>
@@ -115,8 +113,9 @@
                         <a href="#" class="burger ms-auto float-end site-menu-toggle js-menu-toggle d-inline-block d-lg-none light">
                             <span></span>
                         </a>
-                        <form action="#" class="search-form d-none d-lg-inline-block">
-                            <input type="text" class="form-control" placeholder="Search...">
+                        <form action="{{ route('posts.search') }}"  method="POST" class="search-form d-none d-lg-inline-block">
+                            @csrf
+                            <input name="search" type="text" class="form-control" placeholder="Search...">
                             <span class="bi-search"></span>
                         </form>
                     </div>

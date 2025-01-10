@@ -45,7 +45,7 @@
 
 
           <div class="pt-5">
-            <p>Categories:  <a href="#">{{$single->category}}</a></a></p>
+            <p>Categories:  <a href="{{ route('category.single',$single->category)  }}">{{$single->category}}</a></a></p>
           </div>
 
           @auth
@@ -127,7 +127,7 @@
               <div class="bio-body">
                 <h2>{{ $user->name }}</h2>
                 <p class="mb-4">{{ $user->bio }}</p>
-                <p><a href="#" class="px-2 py-2 rounded btn btn-primary btn-sm">Read my bio</a></p>
+                <p><a href="{{ route('users.profile',$user->id)  }}" class="px-2 py-2 rounded btn btn-primary btn-sm">Read my bio</a></p>
                 <p class="social">
                   <a href="#" class="p-2"><span class="fa fa-facebook"></span></a>
                   <a href="#" class="p-2"><span class="fa fa-twitter"></span></a>

@@ -162,6 +162,9 @@ class PostsController extends Controller
      public function deletePost($id){
 
           $deletePost=PostModel::find($id);
+
+          $file_path=public_path('assets/images/'.$deletePost->image);
+          unlink($file_path);
           $deletePost->delete();
           return redirect('/posts/index')->with('delete', 'Post Deleted successfully');
 
@@ -194,6 +197,12 @@ class PostsController extends Controller
 
                 $updatePost->update($request->all());
 
+                Request()->validate([
+                    'title' => 'required|string',
+                    'category' => 'required|string',
+                    'description' => 'required|string|max:1000',
+                ]);
+
                 if($updatePost){
                     return redirect('/posts/single/'. $updatePost->id.'')->with('update', 'Post Updated successfully');
                 }
@@ -209,5 +218,14 @@ class PostsController extends Controller
 
         return view('pages.about');
     }
+
+    public function search(Request $request){
+
+        $search = $request->search;
+
+        $posts = PostModel::select()->where('title','LIKE',"%$search%")->get();
+
+        return view('posts.search',compact('posts'));
     }
 
+}

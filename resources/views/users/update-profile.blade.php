@@ -24,13 +24,31 @@
             <label for="title">Email</label>
             <input type="text" placeholder="email" name="email" value="{{ $user->email }}" class="form-control" id="email">
           </div>
+          @error('email')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" placeholder="Name" name="name" value="{{ $user->name }}" class="form-control" id="name">
+        </div>
+               @error('name')
+                        <span class="text-danger" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
           <div class="form-group">
             <label for="message">Bio</label>
             <textarea  placeholder="Bio" name="bio"  cols="30" rows="10" class="form-control">{{ $user->bio }}</textarea>
-            <div class="form-group">
-                <label for="name">Name</label>
-                <input type="text" placeholder="Name" name="name" value="{{ $user->name }}" class="form-control" id="name">
-            </div>
+
+            @error('bio')
+                        <span class="text-danger" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
+
+
           <div class="form-group">
             <input type="submit" name="submit" value="Update Profile" class="btn btn-primary">
           </div>
